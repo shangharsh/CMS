@@ -107,5 +107,35 @@
   <ItemGroup>
     <None Include="Resources\CMS.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\students.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feesDeposit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\students_2643463.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher_4345051.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\building_1158534.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feesDeposit1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,16 +17,17 @@ namespace CMS
             InitializeComponent();
         }
 
-        private void Label3_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();  
             dashboard.Show();
             this.Close();
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }
