@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.LblDepartment = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtDepartment = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +62,20 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(413, 315);
             this.dataGridView1.TabIndex = 79;
+            // 
+            // no
+            // 
+            this.no.HeaderText = "S.NO.";
+            this.no.MinimumWidth = 8;
+            this.no.Name = "no";
+            this.no.Width = 40;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Department";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 120;
             // 
             // BtnDelete
             // 
@@ -92,6 +106,7 @@
             this.BtnSave.TabIndex = 76;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // LblDepartment
             // 
@@ -103,34 +118,20 @@
             this.LblDepartment.TabIndex = 69;
             this.LblDepartment.Text = "Department";
             // 
-            // textBox1
+            // TxtDepartment
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(595, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 37);
-            this.textBox1.TabIndex = 81;
-            // 
-            // no
-            // 
-            this.no.HeaderText = "S.NO.";
-            this.no.MinimumWidth = 8;
-            this.no.Name = "no";
-            this.no.Width = 40;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Department";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 120;
+            this.TxtDepartment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDepartment.Location = new System.Drawing.Point(595, 155);
+            this.TxtDepartment.Name = "TxtDepartment";
+            this.TxtDepartment.Size = new System.Drawing.Size(177, 37);
+            this.TxtDepartment.TabIndex = 81;
             // 
             // AddDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1475, 851);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtDepartment);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnDelete);
@@ -157,6 +158,6 @@
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Label LblDepartment;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtDepartment;
     }
 }

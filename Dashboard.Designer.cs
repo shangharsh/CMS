@@ -35,6 +35,7 @@
             this.BtnFee = new System.Windows.Forms.Button();
             this.BtnDepartment = new System.Windows.Forms.Button();
             this.BtnLogout = new System.Windows.Forms.Button();
+            this.LblUsername = new System.Windows.Forms.Label();
             this.PanelStdCount = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -75,6 +76,7 @@
             this.FlowLayoutPanel1.Controls.Add(this.BtnFee);
             this.FlowLayoutPanel1.Controls.Add(this.BtnDepartment);
             this.FlowLayoutPanel1.Controls.Add(this.BtnLogout);
+            this.FlowLayoutPanel1.Controls.Add(this.LblUsername);
             this.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.FlowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
@@ -197,6 +199,16 @@
             this.BtnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnLogout.UseVisualStyleBackColor = false;
             this.BtnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
+            // 
+            // LblUsername
+            // 
+            this.LblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblUsername.AutoSize = true;
+            this.LblUsername.Location = new System.Drawing.Point(1483, 53);
+            this.LblUsername.Name = "LblUsername";
+            this.LblUsername.Size = new System.Drawing.Size(75, 20);
+            this.LblUsername.TabIndex = 3;
+            this.LblUsername.Text = "Welcome";
             // 
             // PanelStdCount
             // 
@@ -403,7 +415,6 @@
             this.Controls.Add(this.PanelDashboard);
             this.Controls.Add(this.FlowLayoutPanel1);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "College Management System";
@@ -454,6 +465,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel PanelDashboard;
+        private System.Windows.Forms.Label LblUsername; 
     }
 }
 

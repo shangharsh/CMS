@@ -30,23 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.BtnDelete = new System.Windows.Forms.Button();
-            this.BtnUpdate = new System.Windows.Forms.Button();
-            this.BtnSave = new System.Windows.Forms.Button();
-            this.ComboGender = new System.Windows.Forms.ComboBox();
-            this.PickerDateTime = new System.Windows.Forms.DateTimePicker();
-            this.ComboDepartment = new System.Windows.Forms.ComboBox();
-            this.TxtAddress = new System.Windows.Forms.TextBox();
-            this.TxtMobNumber = new System.Windows.Forms.TextBox();
-            this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.TxtTeacherName = new System.Windows.Forms.TextBox();
-            this.LblAddress = new System.Windows.Forms.Label();
-            this.LblDOB = new System.Windows.Forms.Label();
-            this.LblDepartment = new System.Windows.Forms.Label();
-            this.LblGender = new System.Windows.Forms.Label();
-            this.LblEmail = new System.Windows.Forms.Label();
-            this.LblMobileNumber = new System.Windows.Forms.Label();
-            this.LblTeacherName = new System.Windows.Forms.Label();
             this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +38,23 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnUpdate = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.ComboStdGender = new System.Windows.Forms.ComboBox();
+            this.PickerStdDateTime = new System.Windows.Forms.DateTimePicker();
+            this.ComboStdDepartment = new System.Windows.Forms.ComboBox();
+            this.TxtStdAddress = new System.Windows.Forms.TextBox();
+            this.TxtStdNum = new System.Windows.Forms.TextBox();
+            this.TxtStdEmail = new System.Windows.Forms.TextBox();
+            this.TxtStdName = new System.Windows.Forms.TextBox();
+            this.LblAddress = new System.Windows.Forms.Label();
+            this.LblDOB = new System.Windows.Forms.Label();
+            this.LblDepartment = new System.Windows.Forms.Label();
+            this.LblGender = new System.Windows.Forms.Label();
+            this.LblEmail = new System.Windows.Forms.Label();
+            this.LblMobileNumber = new System.Windows.Forms.Label();
+            this.LblTeacherName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,13 +87,69 @@
             this.dataGridView1.Size = new System.Drawing.Size(1543, 315);
             this.dataGridView1.TabIndex = 45;
             // 
+            // no
+            // 
+            this.no.HeaderText = "S.NO.";
+            this.no.MinimumWidth = 8;
+            this.no.Name = "no";
+            this.no.Width = 40;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Student\'s Full Name";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 230;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Gender";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 60;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Date of Birth";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Phone Number";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Email";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Department";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Fees";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 150;
+            // 
             // BtnDelete
             // 
             this.BtnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDelete.Location = new System.Drawing.Point(1132, 222);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(141, 45);
-            this.BtnDelete.TabIndex = 44;
+            this.BtnDelete.TabIndex = 10;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
             // 
@@ -103,7 +159,7 @@
             this.BtnUpdate.Location = new System.Drawing.Point(1132, 161);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(141, 45);
-            this.BtnUpdate.TabIndex = 43;
+            this.BtnUpdate.TabIndex = 9;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -113,67 +169,68 @@
             this.BtnSave.Location = new System.Drawing.Point(1132, 94);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(141, 45);
-            this.BtnSave.TabIndex = 42;
+            this.BtnSave.TabIndex = 8;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // ComboGender
+            // ComboStdGender
             // 
-            this.ComboGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboGender.FormattingEnabled = true;
-            this.ComboGender.Location = new System.Drawing.Point(739, 211);
-            this.ComboGender.Name = "ComboGender";
-            this.ComboGender.Size = new System.Drawing.Size(223, 37);
-            this.ComboGender.TabIndex = 41;
+            this.ComboStdGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboStdGender.FormattingEnabled = true;
+            this.ComboStdGender.Location = new System.Drawing.Point(739, 211);
+            this.ComboStdGender.Name = "ComboStdGender";
+            this.ComboStdGender.Size = new System.Drawing.Size(223, 37);
+            this.ComboStdGender.TabIndex = 6;
             // 
-            // PickerDateTime
+            // PickerStdDateTime
             // 
-            this.PickerDateTime.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.PickerDateTime.Location = new System.Drawing.Point(132, 324);
-            this.PickerDateTime.Name = "PickerDateTime";
-            this.PickerDateTime.Size = new System.Drawing.Size(418, 37);
-            this.PickerDateTime.TabIndex = 40;
+            this.PickerStdDateTime.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.PickerStdDateTime.Location = new System.Drawing.Point(132, 324);
+            this.PickerStdDateTime.Name = "PickerStdDateTime";
+            this.PickerStdDateTime.Size = new System.Drawing.Size(418, 37);
+            this.PickerStdDateTime.TabIndex = 7;
             // 
-            // ComboDepartment
+            // ComboStdDepartment
             // 
-            this.ComboDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboDepartment.FormattingEnabled = true;
-            this.ComboDepartment.Location = new System.Drawing.Point(442, 211);
-            this.ComboDepartment.Name = "ComboDepartment";
-            this.ComboDepartment.Size = new System.Drawing.Size(225, 37);
-            this.ComboDepartment.TabIndex = 39;
+            this.ComboStdDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboStdDepartment.FormattingEnabled = true;
+            this.ComboStdDepartment.Location = new System.Drawing.Point(442, 211);
+            this.ComboStdDepartment.Name = "ComboStdDepartment";
+            this.ComboStdDepartment.Size = new System.Drawing.Size(225, 37);
+            this.ComboStdDepartment.TabIndex = 5;
             // 
-            // TxtAddress
+            // TxtStdAddress
             // 
-            this.TxtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAddress.Location = new System.Drawing.Point(737, 94);
-            this.TxtAddress.Name = "TxtAddress";
-            this.TxtAddress.Size = new System.Drawing.Size(225, 35);
-            this.TxtAddress.TabIndex = 38;
+            this.TxtStdAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtStdAddress.Location = new System.Drawing.Point(737, 94);
+            this.TxtStdAddress.Name = "TxtStdAddress";
+            this.TxtStdAddress.Size = new System.Drawing.Size(225, 35);
+            this.TxtStdAddress.TabIndex = 3;
             // 
-            // TxtMobNumber
+            // TxtStdNum
             // 
-            this.TxtMobNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMobNumber.Location = new System.Drawing.Point(442, 94);
-            this.TxtMobNumber.Name = "TxtMobNumber";
-            this.TxtMobNumber.Size = new System.Drawing.Size(225, 35);
-            this.TxtMobNumber.TabIndex = 37;
+            this.TxtStdNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtStdNum.Location = new System.Drawing.Point(442, 94);
+            this.TxtStdNum.Name = "TxtStdNum";
+            this.TxtStdNum.Size = new System.Drawing.Size(225, 35);
+            this.TxtStdNum.TabIndex = 2;
             // 
-            // TxtEmail
+            // TxtStdEmail
             // 
-            this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEmail.Location = new System.Drawing.Point(132, 211);
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(225, 35);
-            this.TxtEmail.TabIndex = 36;
+            this.TxtStdEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtStdEmail.Location = new System.Drawing.Point(132, 211);
+            this.TxtStdEmail.Name = "TxtStdEmail";
+            this.TxtStdEmail.Size = new System.Drawing.Size(225, 35);
+            this.TxtStdEmail.TabIndex = 4;
             // 
-            // TxtTeacherName
+            // TxtStdName
             // 
-            this.TxtTeacherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTeacherName.Location = new System.Drawing.Point(132, 94);
-            this.TxtTeacherName.Name = "TxtTeacherName";
-            this.TxtTeacherName.Size = new System.Drawing.Size(225, 35);
-            this.TxtTeacherName.TabIndex = 35;
+            this.TxtStdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtStdName.Location = new System.Drawing.Point(132, 94);
+            this.TxtStdName.Name = "TxtStdName";
+            this.TxtStdName.Size = new System.Drawing.Size(225, 35);
+            this.TxtStdName.TabIndex = 1;
             // 
             // LblAddress
             // 
@@ -245,61 +302,6 @@
             this.LblTeacherName.TabIndex = 28;
             this.LblTeacherName.Text = "Student\'s Full Name";
             // 
-            // no
-            // 
-            this.no.HeaderText = "S.NO.";
-            this.no.MinimumWidth = 8;
-            this.no.Name = "no";
-            this.no.Width = 40;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Student\'s Full Name";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 230;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Gender";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 60;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Date of Birth";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Phone Number";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Email";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Department";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Fees";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            // 
             // AddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -310,13 +312,13 @@
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSave);
-            this.Controls.Add(this.ComboGender);
-            this.Controls.Add(this.PickerDateTime);
-            this.Controls.Add(this.ComboDepartment);
-            this.Controls.Add(this.TxtAddress);
-            this.Controls.Add(this.TxtMobNumber);
-            this.Controls.Add(this.TxtEmail);
-            this.Controls.Add(this.TxtTeacherName);
+            this.Controls.Add(this.ComboStdGender);
+            this.Controls.Add(this.PickerStdDateTime);
+            this.Controls.Add(this.ComboStdDepartment);
+            this.Controls.Add(this.TxtStdAddress);
+            this.Controls.Add(this.TxtStdNum);
+            this.Controls.Add(this.TxtStdEmail);
+            this.Controls.Add(this.TxtStdName);
             this.Controls.Add(this.LblAddress);
             this.Controls.Add(this.LblDOB);
             this.Controls.Add(this.LblDepartment);
@@ -340,13 +342,13 @@
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnSave;
-        private System.Windows.Forms.ComboBox ComboGender;
-        private System.Windows.Forms.DateTimePicker PickerDateTime;
-        private System.Windows.Forms.ComboBox ComboDepartment;
-        private System.Windows.Forms.TextBox TxtAddress;
-        private System.Windows.Forms.TextBox TxtMobNumber;
-        private System.Windows.Forms.TextBox TxtEmail;
-        private System.Windows.Forms.TextBox TxtTeacherName;
+        private System.Windows.Forms.ComboBox ComboStdGender;
+        private System.Windows.Forms.DateTimePicker PickerStdDateTime;
+        private System.Windows.Forms.ComboBox ComboStdDepartment;
+        private System.Windows.Forms.TextBox TxtStdAddress;
+        private System.Windows.Forms.TextBox TxtStdNum;
+        private System.Windows.Forms.TextBox TxtStdEmail;
+        private System.Windows.Forms.TextBox TxtStdName;
         private System.Windows.Forms.Label LblAddress;
         private System.Windows.Forms.Label LblDOB;
         private System.Windows.Forms.Label LblDepartment;

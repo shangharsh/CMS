@@ -30,6 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
@@ -47,14 +55,6 @@
             this.LblEmail = new System.Windows.Forms.Label();
             this.LblMobileNumber = new System.Windows.Forms.Label();
             this.LblTeacherName = new System.Windows.Forms.Label();
-            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,13 +87,69 @@
             this.dataGridView1.Size = new System.Drawing.Size(1616, 315);
             this.dataGridView1.TabIndex = 26;
             // 
+            // no
+            // 
+            this.no.HeaderText = "S.NO.";
+            this.no.MinimumWidth = 8;
+            this.no.Name = "no";
+            this.no.Width = 40;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Teacher\'s Full Name";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 230;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Gender";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 60;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Date of Birth";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Phone Number";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Email";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Department";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Address";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 200;
+            // 
             // BtnDelete
             // 
             this.BtnDelete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDelete.Location = new System.Drawing.Point(1126, 224);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(141, 45);
-            this.BtnDelete.TabIndex = 25;
+            this.BtnDelete.TabIndex = 10;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
             // 
@@ -103,7 +159,7 @@
             this.BtnUpdate.Location = new System.Drawing.Point(1126, 163);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(141, 45);
-            this.BtnUpdate.TabIndex = 24;
+            this.BtnUpdate.TabIndex = 9;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -113,9 +169,10 @@
             this.BtnSave.Location = new System.Drawing.Point(1126, 96);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(141, 45);
-            this.BtnSave.TabIndex = 23;
+            this.BtnSave.TabIndex = 8;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // ComboGender
             // 
@@ -124,7 +181,7 @@
             this.ComboGender.Location = new System.Drawing.Point(733, 213);
             this.ComboGender.Name = "ComboGender";
             this.ComboGender.Size = new System.Drawing.Size(223, 37);
-            this.ComboGender.TabIndex = 22;
+            this.ComboGender.TabIndex = 6;
             // 
             // PickerDateTime
             // 
@@ -132,7 +189,7 @@
             this.PickerDateTime.Location = new System.Drawing.Point(126, 326);
             this.PickerDateTime.Name = "PickerDateTime";
             this.PickerDateTime.Size = new System.Drawing.Size(418, 37);
-            this.PickerDateTime.TabIndex = 21;
+            this.PickerDateTime.TabIndex = 7;
             // 
             // ComboDepartment
             // 
@@ -141,7 +198,7 @@
             this.ComboDepartment.Location = new System.Drawing.Point(436, 213);
             this.ComboDepartment.Name = "ComboDepartment";
             this.ComboDepartment.Size = new System.Drawing.Size(225, 37);
-            this.ComboDepartment.TabIndex = 20;
+            this.ComboDepartment.TabIndex = 5;
             // 
             // TxtAddress
             // 
@@ -149,7 +206,7 @@
             this.TxtAddress.Location = new System.Drawing.Point(731, 96);
             this.TxtAddress.Name = "TxtAddress";
             this.TxtAddress.Size = new System.Drawing.Size(225, 35);
-            this.TxtAddress.TabIndex = 19;
+            this.TxtAddress.TabIndex = 3;
             // 
             // TxtMobNumber
             // 
@@ -157,7 +214,7 @@
             this.TxtMobNumber.Location = new System.Drawing.Point(436, 96);
             this.TxtMobNumber.Name = "TxtMobNumber";
             this.TxtMobNumber.Size = new System.Drawing.Size(225, 35);
-            this.TxtMobNumber.TabIndex = 18;
+            this.TxtMobNumber.TabIndex = 2;
             // 
             // TxtEmail
             // 
@@ -165,7 +222,7 @@
             this.TxtEmail.Location = new System.Drawing.Point(126, 213);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(225, 35);
-            this.TxtEmail.TabIndex = 17;
+            this.TxtEmail.TabIndex = 4;
             // 
             // TxtTeacherName
             // 
@@ -173,7 +230,7 @@
             this.TxtTeacherName.Location = new System.Drawing.Point(126, 96);
             this.TxtTeacherName.Name = "TxtTeacherName";
             this.TxtTeacherName.Size = new System.Drawing.Size(225, 35);
-            this.TxtTeacherName.TabIndex = 16;
+            this.TxtTeacherName.TabIndex = 1;
             // 
             // LblAddress
             // 
@@ -244,61 +301,6 @@
             this.LblTeacherName.Size = new System.Drawing.Size(252, 30);
             this.LblTeacherName.TabIndex = 9;
             this.LblTeacherName.Text = "Teacher\'s Full Name";
-            // 
-            // no
-            // 
-            this.no.HeaderText = "S.NO.";
-            this.no.MinimumWidth = 8;
-            this.no.Name = "no";
-            this.no.Width = 40;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Teacher\'s Full Name";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 230;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Gender";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 60;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Date of Birth";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Phone Number";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Email";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Department";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Address";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 200;
             // 
             // AddTeacher
             // 

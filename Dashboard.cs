@@ -17,6 +17,7 @@ namespace CMS
         public FeeDeposit feeDeposit = new FeeDeposit();
         public AddDepartment addDepartment = new AddDepartment();
         public Login login = new Login();
+        public string username;
 
         public Dashboard()
         {
@@ -33,7 +34,7 @@ namespace CMS
             PanelDashboard.Visible = true;
             PanelDashboard.BringToFront();
             PanelDashboard.Show();
-
+            //MessageBox.Show("HI");
         }
 
         private void BtnDashboard_Click(object sender, EventArgs e)
@@ -92,5 +93,7 @@ namespace CMS
             this.Close();
             login.Show();
         }
+
+        
     }
 }

@@ -33,16 +33,16 @@
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
-            this.PickerDateTime = new System.Windows.Forms.DateTimePicker();
+            this.PickerPaymentDate = new System.Windows.Forms.DateTimePicker();
             this.ComboDepartment = new System.Windows.Forms.ComboBox();
             this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.TxtTeacherName = new System.Windows.Forms.TextBox();
+            this.TxtStdName = new System.Windows.Forms.TextBox();
             this.LblDOB = new System.Windows.Forms.Label();
             this.LblDepartment = new System.Windows.Forms.Label();
             this.LblEmail = new System.Windows.Forms.Label();
             this.LblTeacherName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtSemFee = new System.Windows.Forms.TextBox();
             this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,7 +85,7 @@
             this.BtnDelete.Location = new System.Drawing.Point(1111, 235);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(141, 45);
-            this.BtnDelete.TabIndex = 63;
+            this.BtnDelete.TabIndex = 8;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
             // 
@@ -95,7 +95,7 @@
             this.BtnUpdate.Location = new System.Drawing.Point(1111, 174);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(141, 45);
-            this.BtnUpdate.TabIndex = 62;
+            this.BtnUpdate.TabIndex = 7;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -105,17 +105,18 @@
             this.BtnSave.Location = new System.Drawing.Point(1111, 107);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(141, 45);
-            this.BtnSave.TabIndex = 61;
+            this.BtnSave.TabIndex = 6;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // PickerDateTime
+            // PickerPaymentDate
             // 
-            this.PickerDateTime.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.PickerDateTime.Location = new System.Drawing.Point(110, 231);
-            this.PickerDateTime.Name = "PickerDateTime";
-            this.PickerDateTime.Size = new System.Drawing.Size(418, 37);
-            this.PickerDateTime.TabIndex = 59;
+            this.PickerPaymentDate.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.PickerPaymentDate.Location = new System.Drawing.Point(110, 231);
+            this.PickerPaymentDate.Name = "PickerPaymentDate";
+            this.PickerPaymentDate.Size = new System.Drawing.Size(418, 37);
+            this.PickerPaymentDate.TabIndex = 4;
             // 
             // ComboDepartment
             // 
@@ -124,7 +125,7 @@
             this.ComboDepartment.Location = new System.Drawing.Point(699, 107);
             this.ComboDepartment.Name = "ComboDepartment";
             this.ComboDepartment.Size = new System.Drawing.Size(225, 37);
-            this.ComboDepartment.TabIndex = 58;
+            this.ComboDepartment.TabIndex = 3;
             // 
             // TxtEmail
             // 
@@ -132,15 +133,15 @@
             this.TxtEmail.Location = new System.Drawing.Point(409, 107);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(225, 35);
-            this.TxtEmail.TabIndex = 55;
+            this.TxtEmail.TabIndex = 2;
             // 
-            // TxtTeacherName
+            // TxtStdName
             // 
-            this.TxtTeacherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTeacherName.Location = new System.Drawing.Point(111, 107);
-            this.TxtTeacherName.Name = "TxtTeacherName";
-            this.TxtTeacherName.Size = new System.Drawing.Size(225, 35);
-            this.TxtTeacherName.TabIndex = 54;
+            this.TxtStdName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtStdName.Location = new System.Drawing.Point(111, 107);
+            this.TxtStdName.Name = "TxtStdName";
+            this.TxtStdName.Size = new System.Drawing.Size(225, 35);
+            this.TxtStdName.TabIndex = 1;
             // 
             // LblDOB
             // 
@@ -188,17 +189,17 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.label2.Location = new System.Drawing.Point(694, 199);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 30);
+            this.label2.Size = new System.Drawing.Size(173, 30);
             this.label2.TabIndex = 48;
-            this.label2.Text = "Amount";
+            this.label2.Text = "Semester Fee";
             // 
-            // textBox1
+            // TxtSemFee
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(698, 231);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 35);
-            this.textBox1.TabIndex = 55;
+            this.TxtSemFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSemFee.Location = new System.Drawing.Point(698, 231);
+            this.TxtSemFee.Name = "TxtSemFee";
+            this.TxtSemFee.Size = new System.Drawing.Size(225, 35);
+            this.TxtSemFee.TabIndex = 5;
             // 
             // no
             // 
@@ -237,7 +238,7 @@
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Amount";
+            this.Column7.HeaderText = "Semester Fee";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
             this.Column7.Width = 150;
@@ -252,11 +253,11 @@
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSave);
-            this.Controls.Add(this.PickerDateTime);
+            this.Controls.Add(this.PickerPaymentDate);
             this.Controls.Add(this.ComboDepartment);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtSemFee);
             this.Controls.Add(this.TxtEmail);
-            this.Controls.Add(this.TxtTeacherName);
+            this.Controls.Add(this.TxtStdName);
             this.Controls.Add(this.LblDOB);
             this.Controls.Add(this.LblDepartment);
             this.Controls.Add(this.label2);
@@ -278,21 +279,21 @@
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnSave;
-        private System.Windows.Forms.DateTimePicker PickerDateTime;
+        private System.Windows.Forms.DateTimePicker PickerPaymentDate;
         private System.Windows.Forms.ComboBox ComboDepartment;
         private System.Windows.Forms.TextBox TxtEmail;
-        private System.Windows.Forms.TextBox TxtTeacherName;
+        private System.Windows.Forms.TextBox TxtStdName;
         private System.Windows.Forms.Label LblDOB;
         private System.Windows.Forms.Label LblDepartment;
         private System.Windows.Forms.Label LblEmail;
         private System.Windows.Forms.Label LblTeacherName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtSemFee;
         private System.Windows.Forms.DataGridViewTextBoxColumn no;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
