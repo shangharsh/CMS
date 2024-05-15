@@ -11,6 +11,6 @@ C:\Users\shang\source\repos\CMS\obj\Debug\CMS.Dashboard.resources
 C:\Users\shang\source\repos\CMS\obj\Debug\CMS.Splashscreen.resources
 C:\Users\shang\source\repos\CMS\obj\Debug\CMS.Login.resources
 C:\Users\shang\source\repos\CMS\obj\Debug\CMS.AddTeacher.resources
-C:\Users\shang\source\repos\CMS\obj\Debug\CMS.AddDepartment.resources
 C:\Users\shang\source\repos\CMS\obj\Debug\CMS.AddStudent.resources
 C:\Users\shang\source\repos\CMS\obj\Debug\CMS.FeeDeposit.resources
+C:\Users\shang\source\repos\CMS\obj\Debug\CMS.AddDepartment.resources

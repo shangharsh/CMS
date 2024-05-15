@@ -13,11 +13,29 @@ namespace CMS
 {
     public partial class FeeDeposit : Form
     {
+        string connectionString = "Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True";
         public FeeDeposit()
         {
             InitializeComponent();
         }
 
+        private void FeeDeposit_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+                sqlConnection.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM FEE", sqlConnection);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                PaymentTable.DataSource = dataTable;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error While Loading Data.");
+            }
+        }
         private void BtnSave_Click(object sender, EventArgs e)
         {
             try
@@ -34,6 +52,13 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@dop", PickerPaymentDate.Value.Date);
                     sqlCommand.Parameters.AddWithValue("@payment", TxtSemFee.Text);
                     sqlCommand.ExecuteNonQuery();
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM FEE", sqlConnection);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+
+                    PaymentTable.DataSource = dataTable;
+
                     MessageBox.Show("Fee Added Successfully","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlConnection.Close();
                     TxtStdName.Text = "";
@@ -50,5 +75,6 @@ namespace CMS
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
     }
 }

@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartmentTable = new System.Windows.Forms.DataGridView();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.LblDepartment = new System.Windows.Forms.Label();
             this.TxtDepartment = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DepartmentTable)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,32 +48,15 @@
             this.label1.TabIndex = 80;
             this.label1.Text = "Department\'s Details";
             // 
-            // dataGridView1
+            // DepartmentTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.no,
-            this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(615, 457);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(413, 315);
-            this.dataGridView1.TabIndex = 79;
-            // 
-            // no
-            // 
-            this.no.HeaderText = "S.NO.";
-            this.no.MinimumWidth = 8;
-            this.no.Name = "no";
-            this.no.Width = 40;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Department";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 120;
+            this.DepartmentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DepartmentTable.Location = new System.Drawing.Point(615, 457);
+            this.DepartmentTable.Name = "DepartmentTable";
+            this.DepartmentTable.RowHeadersWidth = 62;
+            this.DepartmentTable.RowTemplate.Height = 28;
+            this.DepartmentTable.Size = new System.Drawing.Size(413, 315);
+            this.DepartmentTable.TabIndex = 79;
             // 
             // BtnDelete
             // 
@@ -133,7 +114,7 @@
             this.ClientSize = new System.Drawing.Size(1475, 851);
             this.Controls.Add(this.TxtDepartment);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DepartmentTable);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSave);
@@ -142,7 +123,8 @@
             this.MinimizeBox = false;
             this.Name = "AddDepartment";
             this.Text = "AddDepartment";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.DepartmentTable_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DepartmentTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,9 +133,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridView DepartmentTable;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnSave;

@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnDashboard = new System.Windows.Forms.Button();
-            this.BtnTeacher = new System.Windows.Forms.Button();
-            this.BtnStudent = new System.Windows.Forms.Button();
-            this.BtnFee = new System.Windows.Forms.Button();
             this.BtnDepartment = new System.Windows.Forms.Button();
-            this.BtnLogout = new System.Windows.Forms.Button();
             this.LblUsername = new System.Windows.Forms.Label();
+            this.BtnFee = new System.Windows.Forms.Button();
+            this.BtnStudent = new System.Windows.Forms.Button();
+            this.BtnTeacher = new System.Windows.Forms.Button();
+            this.BtnDashboard = new System.Windows.Forms.Button();
+            this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnLogout = new System.Windows.Forms.Button();
             this.PanelStdCount = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Label1 = new System.Windows.Forms.Label();
-            this.PanelTeachCount = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.PanelDepartCount = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.PanelTeachCount = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.PanelFeeTotal = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,33 +56,99 @@
             this.FlowLayoutPanel1.SuspendLayout();
             this.PanelStdCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.PanelTeachCount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PanelDepartCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.PanelTeachCount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PanelFeeTotal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.PanelDashboard.SuspendLayout();
             this.SuspendLayout();
             // 
-            // FlowLayoutPanel1
+            // BtnDepartment
             // 
-            this.FlowLayoutPanel1.AutoScroll = true;
-            this.FlowLayoutPanel1.AutoSize = true;
-            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.FlowLayoutPanel1.Controls.Add(this.BtnDashboard);
-            this.FlowLayoutPanel1.Controls.Add(this.BtnTeacher);
-            this.FlowLayoutPanel1.Controls.Add(this.BtnStudent);
-            this.FlowLayoutPanel1.Controls.Add(this.BtnFee);
-            this.FlowLayoutPanel1.Controls.Add(this.BtnDepartment);
-            this.FlowLayoutPanel1.Controls.Add(this.BtnLogout);
-            this.FlowLayoutPanel1.Controls.Add(this.LblUsername);
-            this.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.FlowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
-            this.FlowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
-            this.FlowLayoutPanel1.Size = new System.Drawing.Size(1673, 126);
-            this.FlowLayoutPanel1.TabIndex = 0;
+            this.BtnDepartment.AutoSize = true;
+            this.BtnDepartment.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDepartment.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.BtnDepartment.Image = global::CMS.Properties.Resources.department;
+            this.BtnDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDepartment.Location = new System.Drawing.Point(996, 23);
+            this.BtnDepartment.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.BtnDepartment.Name = "BtnDepartment";
+            this.BtnDepartment.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
+            this.BtnDepartment.Size = new System.Drawing.Size(252, 80);
+            this.BtnDepartment.TabIndex = 5;
+            this.BtnDepartment.Text = "Departments";
+            this.BtnDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDepartment.UseVisualStyleBackColor = false;
+            this.BtnDepartment.Click += new System.EventHandler(this.BtnDepartment_Click);
+            // 
+            // LblUsername
+            // 
+            this.LblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblUsername.AutoSize = true;
+            this.LblUsername.Location = new System.Drawing.Point(990, 53);
+            this.LblUsername.Name = "LblUsername";
+            this.LblUsername.Size = new System.Drawing.Size(0, 20);
+            this.LblUsername.TabIndex = 3;
+            // 
+            // BtnFee
+            // 
+            this.BtnFee.AutoSize = true;
+            this.BtnFee.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnFee.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFee.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.BtnFee.Image = global::CMS.Properties.Resources.feesDeposit;
+            this.BtnFee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFee.Location = new System.Drawing.Point(719, 23);
+            this.BtnFee.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.BtnFee.Name = "BtnFee";
+            this.BtnFee.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
+            this.BtnFee.Size = new System.Drawing.Size(248, 80);
+            this.BtnFee.TabIndex = 4;
+            this.BtnFee.Text = "Fees Deposit";
+            this.BtnFee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnFee.UseVisualStyleBackColor = false;
+            this.BtnFee.Click += new System.EventHandler(this.BtnFee_Click);
+            // 
+            // BtnStudent
+            // 
+            this.BtnStudent.AutoSize = true;
+            this.BtnStudent.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnStudent.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.BtnStudent.Image = global::CMS.Properties.Resources.students;
+            this.BtnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnStudent.Location = new System.Drawing.Point(497, 23);
+            this.BtnStudent.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.BtnStudent.Name = "BtnStudent";
+            this.BtnStudent.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
+            this.BtnStudent.Size = new System.Drawing.Size(199, 80);
+            this.BtnStudent.TabIndex = 3;
+            this.BtnStudent.Text = "Students";
+            this.BtnStudent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnStudent.UseVisualStyleBackColor = false;
+            this.BtnStudent.Click += new System.EventHandler(this.BtnStudent_Click);
+            // 
+            // BtnTeacher
+            // 
+            this.BtnTeacher.AutoSize = true;
+            this.BtnTeacher.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnTeacher.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTeacher.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.BtnTeacher.Image = global::CMS.Properties.Resources.teacher;
+            this.BtnTeacher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTeacher.Location = new System.Drawing.Point(271, 23);
+            this.BtnTeacher.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.BtnTeacher.Name = "BtnTeacher";
+            this.BtnTeacher.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
+            this.BtnTeacher.Size = new System.Drawing.Size(203, 80);
+            this.BtnTeacher.TabIndex = 2;
+            this.BtnTeacher.Text = "Teachers";
+            this.BtnTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTeacher.UseVisualStyleBackColor = false;
+            this.BtnTeacher.Click += new System.EventHandler(this.BtnTeacher_Click);
             // 
             // BtnDashboard
             // 
@@ -104,111 +170,43 @@
             this.BtnDashboard.UseVisualStyleBackColor = false;
             this.BtnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
             // 
-            // BtnTeacher
+            // FlowLayoutPanel1
             // 
-            this.BtnTeacher.AutoSize = true;
-            this.BtnTeacher.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnTeacher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTeacher.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.BtnTeacher.Image = global::CMS.Properties.Resources.teacher;
-            this.BtnTeacher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTeacher.Location = new System.Drawing.Point(271, 23);
-            this.BtnTeacher.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.BtnTeacher.Name = "BtnTeacher";
-            this.BtnTeacher.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
-            this.BtnTeacher.Size = new System.Drawing.Size(203, 80);
-            this.BtnTeacher.TabIndex = 1;
-            this.BtnTeacher.Text = "Teachers";
-            this.BtnTeacher.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTeacher.UseVisualStyleBackColor = false;
-            this.BtnTeacher.Click += new System.EventHandler(this.BtnTeacher_Click);
-            // 
-            // BtnStudent
-            // 
-            this.BtnStudent.AutoSize = true;
-            this.BtnStudent.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnStudent.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.BtnStudent.Image = global::CMS.Properties.Resources.students;
-            this.BtnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnStudent.Location = new System.Drawing.Point(497, 23);
-            this.BtnStudent.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.BtnStudent.Name = "BtnStudent";
-            this.BtnStudent.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
-            this.BtnStudent.Size = new System.Drawing.Size(199, 80);
-            this.BtnStudent.TabIndex = 1;
-            this.BtnStudent.Text = "Students";
-            this.BtnStudent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnStudent.UseVisualStyleBackColor = false;
-            this.BtnStudent.Click += new System.EventHandler(this.BtnStudent_Click);
-            // 
-            // BtnFee
-            // 
-            this.BtnFee.AutoSize = true;
-            this.BtnFee.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnFee.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFee.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.BtnFee.Image = global::CMS.Properties.Resources.feesDeposit;
-            this.BtnFee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFee.Location = new System.Drawing.Point(719, 23);
-            this.BtnFee.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.BtnFee.Name = "BtnFee";
-            this.BtnFee.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
-            this.BtnFee.Size = new System.Drawing.Size(248, 80);
-            this.BtnFee.TabIndex = 1;
-            this.BtnFee.Text = "Fees Deposit";
-            this.BtnFee.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnFee.UseVisualStyleBackColor = false;
-            this.BtnFee.Click += new System.EventHandler(this.BtnFee_Click);
-            // 
-            // BtnDepartment
-            // 
-            this.BtnDepartment.AutoSize = true;
-            this.BtnDepartment.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDepartment.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.BtnDepartment.Image = global::CMS.Properties.Resources.department;
-            this.BtnDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDepartment.Location = new System.Drawing.Point(990, 23);
-            this.BtnDepartment.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.BtnDepartment.Name = "BtnDepartment";
-            this.BtnDepartment.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
-            this.BtnDepartment.Size = new System.Drawing.Size(252, 80);
-            this.BtnDepartment.TabIndex = 1;
-            this.BtnDepartment.Text = "Departments";
-            this.BtnDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDepartment.UseVisualStyleBackColor = false;
-            this.BtnDepartment.Click += new System.EventHandler(this.BtnDepartment_Click);
+            this.FlowLayoutPanel1.AutoScroll = true;
+            this.FlowLayoutPanel1.AutoSize = true;
+            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.FlowLayoutPanel1.Controls.Add(this.BtnDashboard);
+            this.FlowLayoutPanel1.Controls.Add(this.BtnTeacher);
+            this.FlowLayoutPanel1.Controls.Add(this.BtnStudent);
+            this.FlowLayoutPanel1.Controls.Add(this.BtnFee);
+            this.FlowLayoutPanel1.Controls.Add(this.LblUsername);
+            this.FlowLayoutPanel1.Controls.Add(this.BtnDepartment);
+            this.FlowLayoutPanel1.Controls.Add(this.BtnLogout);
+            this.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FlowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.FlowLayoutPanel1.Name = "FlowLayoutPanel1";
+            this.FlowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
+            this.FlowLayoutPanel1.Size = new System.Drawing.Size(1673, 126);
+            this.FlowLayoutPanel1.TabIndex = 0;
             // 
             // BtnLogout
             // 
             this.BtnLogout.AutoSize = true;
             this.BtnLogout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BtnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLogout.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnLogout.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.BtnLogout.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogout.Image = global::CMS.Properties.Resources.logout;
             this.BtnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLogout.Location = new System.Drawing.Point(1265, 23);
+            this.BtnLogout.Location = new System.Drawing.Point(1271, 23);
             this.BtnLogout.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.BtnLogout.Name = "BtnLogout";
             this.BtnLogout.Padding = new System.Windows.Forms.Padding(7, 20, 7, 20);
-            this.BtnLogout.Size = new System.Drawing.Size(195, 80);
-            this.BtnLogout.TabIndex = 1;
+            this.BtnLogout.Size = new System.Drawing.Size(252, 80);
+            this.BtnLogout.TabIndex = 6;
             this.BtnLogout.Text = "Logout";
             this.BtnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnLogout.UseVisualStyleBackColor = false;
             this.BtnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
-            // 
-            // LblUsername
-            // 
-            this.LblUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LblUsername.AutoSize = true;
-            this.LblUsername.Location = new System.Drawing.Point(1483, 53);
-            this.LblUsername.Name = "LblUsername";
-            this.LblUsername.Size = new System.Drawing.Size(75, 20);
-            this.LblUsername.TabIndex = 3;
-            this.LblUsername.Text = "Welcome";
             // 
             // PanelStdCount
             // 
@@ -218,7 +216,7 @@
             this.PanelStdCount.Controls.Add(this.pictureBox1);
             this.PanelStdCount.Controls.Add(this.Label1);
             this.PanelStdCount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelStdCount.Location = new System.Drawing.Point(194, 63);
+            this.PanelStdCount.Location = new System.Drawing.Point(199, 126);
             this.PanelStdCount.Name = "PanelStdCount";
             this.PanelStdCount.Size = new System.Drawing.Size(252, 249);
             this.PanelStdCount.TabIndex = 0;
@@ -256,52 +254,6 @@
             this.Label1.Text = "Students";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PanelTeachCount
-            // 
-            this.PanelTeachCount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PanelTeachCount.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PanelTeachCount.Controls.Add(this.label4);
-            this.PanelTeachCount.Controls.Add(this.pictureBox2);
-            this.PanelTeachCount.Controls.Add(this.label3);
-            this.PanelTeachCount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelTeachCount.Location = new System.Drawing.Point(534, 63);
-            this.PanelTeachCount.Name = "PanelTeachCount";
-            this.PanelTeachCount.Size = new System.Drawing.Size(252, 249);
-            this.PanelTeachCount.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label4.Location = new System.Drawing.Point(97, 210);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 23);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "100";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CMS.Properties.Resources.teacher_4345051;
-            this.pictureBox2.Location = new System.Drawing.Point(45, 55);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(158, 143);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.LimeGreen;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(252, 46);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Teachers";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // PanelDepartCount
             // 
             this.PanelDepartCount.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -310,7 +262,7 @@
             this.PanelDepartCount.Controls.Add(this.label6);
             this.PanelDepartCount.Controls.Add(this.pictureBox3);
             this.PanelDepartCount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelDepartCount.Location = new System.Drawing.Point(875, 63);
+            this.PanelDepartCount.Location = new System.Drawing.Point(880, 126);
             this.PanelDepartCount.Name = "PanelDepartCount";
             this.PanelDepartCount.Size = new System.Drawing.Size(252, 249);
             this.PanelDepartCount.TabIndex = 0;
@@ -348,6 +300,52 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
+            // PanelTeachCount
+            // 
+            this.PanelTeachCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PanelTeachCount.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PanelTeachCount.Controls.Add(this.label4);
+            this.PanelTeachCount.Controls.Add(this.pictureBox2);
+            this.PanelTeachCount.Controls.Add(this.label3);
+            this.PanelTeachCount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PanelTeachCount.Location = new System.Drawing.Point(539, 126);
+            this.PanelTeachCount.Name = "PanelTeachCount";
+            this.PanelTeachCount.Size = new System.Drawing.Size(252, 249);
+            this.PanelTeachCount.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label4.Location = new System.Drawing.Point(97, 210);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 23);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "100";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CMS.Properties.Resources.teacher_4345051;
+            this.pictureBox2.Location = new System.Drawing.Point(45, 55);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(158, 143);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.LimeGreen;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(252, 46);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Teachers";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // PanelFeeTotal
             // 
             this.PanelFeeTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -356,7 +354,7 @@
             this.PanelFeeTotal.Controls.Add(this.label8);
             this.PanelFeeTotal.Controls.Add(this.pictureBox4);
             this.PanelFeeTotal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelFeeTotal.Location = new System.Drawing.Point(1208, 63);
+            this.PanelFeeTotal.Location = new System.Drawing.Point(1213, 126);
             this.PanelFeeTotal.Name = "PanelFeeTotal";
             this.PanelFeeTotal.Size = new System.Drawing.Size(252, 249);
             this.PanelFeeTotal.TabIndex = 0;
@@ -424,12 +422,12 @@
             this.PanelStdCount.ResumeLayout(false);
             this.PanelStdCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.PanelTeachCount.ResumeLayout(false);
-            this.PanelTeachCount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PanelDepartCount.ResumeLayout(false);
             this.PanelDepartCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.PanelTeachCount.ResumeLayout(false);
+            this.PanelTeachCount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PanelFeeTotal.ResumeLayout(false);
             this.PanelFeeTotal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -440,32 +438,31 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel1;
+        private System.Windows.Forms.Button BtnDepartment;
+        private System.Windows.Forms.Label LblUsername;
+        private System.Windows.Forms.Button BtnFee;
+        private System.Windows.Forms.Button BtnStudent;
         private System.Windows.Forms.Button BtnTeacher;
         private System.Windows.Forms.Button BtnDashboard;
-        private System.Windows.Forms.Button BtnStudent;
-        private System.Windows.Forms.Button BtnFee;
-        private System.Windows.Forms.Button BtnDepartment;
-        private System.Windows.Forms.Button BtnLogout;
+        private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel1;
         private System.Windows.Forms.Panel PanelStdCount;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Label1;
-        private System.Windows.Forms.Panel PanelTeachCount;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel PanelDepartCount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel PanelTeachCount;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel PanelFeeTotal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel PanelDashboard;
-        private System.Windows.Forms.Label LblUsername; 
+        private System.Windows.Forms.Button BtnLogout;
     }
 }
 

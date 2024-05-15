@@ -7,21 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.SqlClient;    
 
 namespace CMS
 {
     public partial class AddTeacher : Form
     {
+
+        string connectionString = "Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True";
         public AddTeacher()
         {
             InitializeComponent();
         }
 
+        private void AddTeacher_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+                sqlConnection.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM TEACHER", sqlConnection);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                TeacherTable.DataSource = dataTable;
+                
+            }
+            catch(Exception ex) {
+                MessageBox.Show(ex.Message, "Error While Loading Data");
+            }
+
+        }
         private void BtnSave_Click(object sender, EventArgs e)
         {
             try {
-                SqlConnection sqlConnection = new SqlConnection("Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True");
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
                 sqlConnection.Open();
                 if (TxtTeacherName.TextLength > 0 && TxtMobNumber.TextLength > 0 && TxtAddress.TextLength > 0 && TxtEmail.TextLength > 0)
                 {
@@ -35,6 +55,13 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@temail", TxtEmail.Text);
                     sqlCommand.Parameters.AddWithValue("@tdepartment", ComboDepartment.Text);
                     sqlCommand.ExecuteNonQuery();
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM TEACHER", sqlConnection);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+
+                    TeacherTable.DataSource = dataTable;
+
                     MessageBox.Show("Teacher Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlConnection.Close();
                     TxtTeacherName.Text = "";
@@ -52,5 +79,6 @@ namespace CMS
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
     }
 }

@@ -29,15 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherTable = new System.Windows.Forms.DataGridView();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
@@ -55,7 +47,7 @@
             this.LblEmail = new System.Windows.Forms.Label();
             this.LblMobileNumber = new System.Windows.Forms.Label();
             this.LblTeacherName = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TeacherTable)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -68,80 +60,15 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Teacher\'s Details";
             // 
-            // dataGridView1
+            // TeacherTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.no,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
-            this.dataGridView1.Location = new System.Drawing.Point(126, 473);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1616, 315);
-            this.dataGridView1.TabIndex = 26;
-            // 
-            // no
-            // 
-            this.no.HeaderText = "S.NO.";
-            this.no.MinimumWidth = 8;
-            this.no.Name = "no";
-            this.no.Width = 40;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Teacher\'s Full Name";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 230;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Gender";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 60;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Date of Birth";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Phone Number";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Email";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Department";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Address";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 200;
+            this.TeacherTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TeacherTable.Location = new System.Drawing.Point(126, 473);
+            this.TeacherTable.Name = "TeacherTable";
+            this.TeacherTable.RowHeadersWidth = 62;
+            this.TeacherTable.RowTemplate.Height = 28;
+            this.TeacherTable.Size = new System.Drawing.Size(1616, 315);
+            this.TeacherTable.TabIndex = 26;
             // 
             // BtnDelete
             // 
@@ -308,7 +235,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1912, 853);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.TeacherTable);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSave);
@@ -330,7 +257,8 @@
             this.MinimizeBox = false;
             this.Name = "AddTeacher";
             this.Text = "AddTeacher";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.AddTeacher_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.TeacherTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,7 +266,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView TeacherTable;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnSave;
@@ -356,13 +284,5 @@
         private System.Windows.Forms.Label LblEmail;
         private System.Windows.Forms.Label LblMobileNumber;
         private System.Windows.Forms.Label LblTeacherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

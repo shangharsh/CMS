@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PaymentTable = new System.Windows.Forms.DataGridView();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
@@ -43,13 +43,7 @@
             this.LblTeacherName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtSemFee = new System.Windows.Forms.TextBox();
-            this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaymentTable)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,22 +56,15 @@
             this.label1.TabIndex = 65;
             this.label1.Text = "Payment\'s Details";
             // 
-            // dataGridView1
+            // PaymentTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.no,
-            this.Column1,
-            this.Column3,
-            this.Column5,
-            this.Column6,
-            this.Column7});
-            this.dataGridView1.Location = new System.Drawing.Point(111, 484);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1313, 315);
-            this.dataGridView1.TabIndex = 64;
+            this.PaymentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PaymentTable.Location = new System.Drawing.Point(111, 484);
+            this.PaymentTable.Name = "PaymentTable";
+            this.PaymentTable.RowHeadersWidth = 62;
+            this.PaymentTable.RowTemplate.Height = 28;
+            this.PaymentTable.Size = new System.Drawing.Size(1313, 315);
+            this.PaymentTable.TabIndex = 64;
             // 
             // BtnDelete
             // 
@@ -201,55 +188,13 @@
             this.TxtSemFee.Size = new System.Drawing.Size(225, 35);
             this.TxtSemFee.TabIndex = 5;
             // 
-            // no
-            // 
-            this.no.HeaderText = "S.NO.";
-            this.no.MinimumWidth = 8;
-            this.no.Name = "no";
-            this.no.Width = 40;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Student\'s Full Name";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 230;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Date of Payment";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Email";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Department";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Semester Fee";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
-            // 
             // FeeDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1534, 854);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.PaymentTable);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSave);
@@ -267,7 +212,8 @@
             this.MinimizeBox = false;
             this.Name = "FeeDeposit";
             this.Text = "FeeDeposit";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FeeDeposit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PaymentTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +221,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView PaymentTable;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnSave;
@@ -289,11 +235,5 @@
         private System.Windows.Forms.Label LblTeacherName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtSemFee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn no;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

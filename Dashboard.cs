@@ -93,7 +93,5 @@ namespace CMS
             this.Close();
             login.Show();
         }
-
-        
     }
 }

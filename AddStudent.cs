@@ -13,16 +13,33 @@ namespace CMS
 {
     public partial class AddStudent : Form
     {
+        string connectionString = "Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True";
         public AddStudent()
         {
             InitializeComponent();
+        }
+        private void AddStudent_Load(object sender, EventArgs e)
+        {
+            try 
+            {
+                SqlConnection sqlConnection = new SqlConnection(connectionString);  
+                sqlConnection.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM STUDENT", sqlConnection);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                StudentTable.DataSource = dataTable;
+            }
+            catch(Exception ex) {
+                MessageBox.Show(ex.Message, "Error While Loading Data.");
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection("Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True");
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
                 sqlConnection.Open();
                 if (TxtStdAddress.TextLength>0 && TxtStdName.TextLength>0 && TxtStdEmail.TextLength>0 && TxtStdNum.TextLength>0)
                 {
@@ -36,6 +53,13 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@sdepartment", ComboStdDepartment.Text);
                     sqlCommand.Parameters.AddWithValue("@saddress", TxtStdAddress.Text);
                     sqlCommand.ExecuteNonQuery();
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM STUDENT", sqlConnection);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+
+                    StudentTable.DataSource = dataTable;
+
                     MessageBox.Show("Student Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlConnection.Close();
                     TxtStdName.Text = "";
@@ -53,5 +77,6 @@ namespace CMS
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
     }
 }

@@ -13,11 +13,29 @@ namespace CMS
 {
     public partial class AddDepartment : Form
     {
+        string connectionString = "Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True";
         public AddDepartment()
         {
             InitializeComponent();
         }
 
+        private void DepartmentTable_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+                sqlConnection.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                DepartmentTable.DataSource = dataTable;
+            }
+            catch(Exception ex) {
+                MessageBox.Show(ex.Message, "Error While Loading Data.");
+            }
+
+        }
         private void BtnSave_Click(object sender, EventArgs e)
         {
             try
@@ -30,6 +48,13 @@ namespace CMS
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                     sqlCommand.Parameters.AddWithValue("@department", TxtDepartment.Text);
                     sqlCommand.ExecuteNonQuery();
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+
+                    DepartmentTable.DataSource = dataTable;
+
                     MessageBox.Show("Department Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlConnection.Close();
                     TxtDepartment.Text = "";
@@ -43,5 +68,6 @@ namespace CMS
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
     }
 }
