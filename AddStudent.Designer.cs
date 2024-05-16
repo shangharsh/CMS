@@ -105,6 +105,10 @@
             // 
             this.ComboStdGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboStdGender.FormattingEnabled = true;
+            this.ComboStdGender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Others"});
             this.ComboStdGender.Location = new System.Drawing.Point(739, 211);
             this.ComboStdGender.Name = "ComboStdGender";
             this.ComboStdGender.Size = new System.Drawing.Size(223, 37);

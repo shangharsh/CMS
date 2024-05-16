@@ -47,6 +47,8 @@
             this.LblEmail = new System.Windows.Forms.Label();
             this.LblMobileNumber = new System.Windows.Forms.Label();
             this.LblTeacherName = new System.Windows.Forms.Label();
+            this.TxtId = new System.Windows.Forms.TextBox();
+            this.BtnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TeacherTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +71,7 @@
             this.TeacherTable.RowTemplate.Height = 28;
             this.TeacherTable.Size = new System.Drawing.Size(1616, 315);
             this.TeacherTable.TabIndex = 26;
+            this.TeacherTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TeacherTable_CellDoubleClick);
             // 
             // BtnDelete
             // 
@@ -79,6 +82,7 @@
             this.BtnDelete.TabIndex = 10;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnUpdate
             // 
@@ -89,6 +93,7 @@
             this.BtnUpdate.TabIndex = 9;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // BtnSave
             // 
@@ -105,6 +110,10 @@
             // 
             this.ComboGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboGender.FormattingEnabled = true;
+            this.ComboGender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Others"});
             this.ComboGender.Location = new System.Drawing.Point(733, 213);
             this.ComboGender.Name = "ComboGender";
             this.ComboGender.Size = new System.Drawing.Size(223, 37);
@@ -229,13 +238,33 @@
             this.LblTeacherName.TabIndex = 9;
             this.LblTeacherName.Text = "Teacher\'s Full Name";
             // 
+            // TxtId
+            // 
+            this.TxtId.Location = new System.Drawing.Point(127, 35);
+            this.TxtId.Name = "TxtId";
+            this.TxtId.Size = new System.Drawing.Size(100, 26);
+            this.TxtId.TabIndex = 28;
+            // 
+            // BtnReset
+            // 
+            this.BtnReset.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReset.Location = new System.Drawing.Point(1126, 287);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(141, 45);
+            this.BtnReset.TabIndex = 11;
+            this.BtnReset.Text = "Reset";
+            this.BtnReset.UseVisualStyleBackColor = true;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
             // AddTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1912, 853);
+            this.Controls.Add(this.TxtId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TeacherTable);
+            this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSave);
@@ -284,5 +313,7 @@
         private System.Windows.Forms.Label LblEmail;
         private System.Windows.Forms.Label LblMobileNumber;
         private System.Windows.Forms.Label LblTeacherName;
+        private System.Windows.Forms.TextBox TxtId;
+        private System.Windows.Forms.Button BtnReset;
     }
 }
