@@ -13,10 +13,13 @@ namespace CMS
 {
     public partial class AddStudent : Form
     {
-        string connectionString = "Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True";
+
+        SqlConnection sqlConnection = new SqlConnection("Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True");
         public AddStudent()
         {
             InitializeComponent();
+            sqlConnection.Open();
+
         }
 
         void Btnvisibility()
@@ -47,8 +50,6 @@ namespace CMS
         {
             try 
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);  
-                sqlConnection.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM STUDENT", sqlConnection);
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
@@ -56,7 +57,8 @@ namespace CMS
                 StudentTable.DataSource = dataTable;
             }
             catch(Exception ex) {
-                MessageBox.Show(ex.Message, "Error While Loading Data.");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
             Btnvisibility();
         }
@@ -65,8 +67,6 @@ namespace CMS
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
                 if (TxtStdAddress.TextLength>0 && TxtStdName.TextLength>0 && TxtStdEmail.TextLength>0 && TxtStdNum.TextLength>0)
                 {
                     string query = "INSERT INTO STUDENT(sname, sgender, sdob, sphone, semail, sdepartment, saddress)VALUES(@sname, @sgender, @sdob, @sphone, @semail, @sdepartment, @saddress)";
@@ -100,7 +100,7 @@ namespace CMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -119,6 +119,7 @@ namespace CMS
                 TxtId.Text = studentTable.Cells[0].Value.ToString();
                 TxtStdName.Text = studentTable.Cells[1].Value.ToString();
                 ComboStdGender.Text = studentTable.Cells[2].Value.ToString();
+                PickerStdDateTime.Text = studentTable.Cells[3].Value.ToString();
                 TxtStdNum.Text = studentTable.Cells[4].Value.ToString();
                 TxtStdEmail.Text = studentTable.Cells[5].Value.ToString();
                 ComboStdDepartment.Text = studentTable.Cells[6].Value.ToString();
@@ -131,8 +132,6 @@ namespace CMS
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
                 if (TxtId.TextLength > 0 && TxtStdName.TextLength > 0 && TxtStdNum.TextLength > 0 && TxtStdEmail.TextLength > 0 && TxtStdAddress.TextLength > 0)
                 {
                     string query = "UPDATE STUDENT SET sname=@sname, sgender=@sgender, sdob=@sdob, sphone=@sphone, semail=@semail, sdepartment=@sdepartment, saddress=@saddress WHERE sid=@sid";
@@ -161,7 +160,7 @@ namespace CMS
                 }
             }
             catch(Exception ex) {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Btnvisibility();
         }
@@ -170,8 +169,6 @@ namespace CMS
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
                 if (TxtId.TextLength > 0 && TxtStdName.TextLength > 0 && TxtStdNum.TextLength > 0 && TxtStdEmail.TextLength > 0 && TxtStdAddress.TextLength > 0)
                 {
                     string query = "DELETE FROM STUDENT WHERE sid=@sid";
@@ -194,7 +191,7 @@ namespace CMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

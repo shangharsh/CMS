@@ -64,9 +64,12 @@
             // 
             // TeacherTable
             // 
+            this.TeacherTable.AllowUserToAddRows = false;
+            this.TeacherTable.AllowUserToDeleteRows = false;
             this.TeacherTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TeacherTable.Location = new System.Drawing.Point(126, 473);
             this.TeacherTable.Name = "TeacherTable";
+            this.TeacherTable.ReadOnly = true;
             this.TeacherTable.RowHeadersWidth = 62;
             this.TeacherTable.RowTemplate.Height = 28;
             this.TeacherTable.Size = new System.Drawing.Size(1616, 315);

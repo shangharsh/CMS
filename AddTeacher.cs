@@ -13,10 +13,12 @@ namespace CMS
 {
     public partial class AddTeacher : Form
     {
-        string connectionString = "Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True";
+        SqlConnection sqlConnection = new SqlConnection("Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True");
         public AddTeacher()
         {
             InitializeComponent();
+            sqlConnection.Open();
+
         }
 
         private void AddTeacher_Load(object sender, EventArgs e)
@@ -24,8 +26,6 @@ namespace CMS
             BtnVisibility();
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM TEACHER", sqlConnection);
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
@@ -34,7 +34,8 @@ namespace CMS
                 
             }
             catch(Exception ex) {
-                MessageBox.Show(ex.Message, "Error While Loading Data");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
         }
@@ -43,9 +44,9 @@ namespace CMS
         {
             if (TxtId.TextLength == 0)
             {
-                BtnUpdate.Enabled = false;
+                BtnUpdate.Enabled = false;          
                 BtnSave.Enabled = true;
-            }
+            }   
             else if(TxtId.TextLength != 0)
             {
                 BtnUpdate.Enabled = true;
@@ -57,8 +58,6 @@ namespace CMS
         private void BtnSave_Click(object sender, EventArgs e)
         {
             try {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
                 if (TxtTeacherName.TextLength > 0 && TxtMobNumber.TextLength > 0 && TxtAddress.TextLength > 0 && TxtEmail.TextLength > 0)
                 {
                     string query = "INSERT INTO TEACHER(tname, tgender, tdob, tphone, taddress, temail, tdepartment)VALUES(@tname,@tgender,@tdob,@tphone,@taddress,@temail,@tdepartment)";
@@ -88,7 +87,8 @@ namespace CMS
                 sqlConnection.Close();
             }
             catch(Exception ex) {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
             BtnVisibility();
         }
@@ -106,12 +106,13 @@ namespace CMS
 
         private void TeacherTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-        if (e.RowIndex != -1)
+        if (e.RowIndex != -1)   
                     {
                         DataGridViewRow teacherTable = TeacherTable.Rows[e.RowIndex];
                         TxtId.Text = teacherTable.Cells[0].Value.ToString();
                         TxtTeacherName.Text = teacherTable.Cells[1].Value.ToString();
                         ComboGender.Text = teacherTable.Cells[2].Value.ToString();
+                        PickerDateTime.Text = teacherTable.Cells[3].Value.ToString();
                         TxtMobNumber.Text= teacherTable.Cells[4].Value.ToString();
                         TxtEmail.Text = teacherTable.Cells[5].Value.ToString();
                         ComboDepartment.Text = teacherTable.Cells[6].Value.ToString();
@@ -124,13 +125,11 @@ namespace CMS
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
                 if (TxtId.TextLength > 0 && TxtTeacherName.TextLength > 0 && TxtMobNumber.TextLength > 0 && TxtAddress.TextLength > 0 && TxtEmail.TextLength > 0)
                 {
                     string query = "UPDATE TEACHER SET tname=@name, tgender=@gender, tdob=@dob, tphone=@phone, temail=@email, tdepartment=@department, taddress=@address WHERE tid = @id";
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@id", TxtId.Text);
+                    sqlCommand.Parameters.AddWithValue("@id", TxtId.Text);  
                     sqlCommand.Parameters.AddWithValue("@name", TxtTeacherName.Text);
                     sqlCommand.Parameters.AddWithValue("@gender", ComboGender.Text);
                     sqlCommand.Parameters.AddWithValue("@dob", PickerDateTime.Value.Date);
@@ -145,7 +144,7 @@ namespace CMS
                     sqlDataAdapter.Fill(dataTable);
 
                     TeacherTable.DataSource = dataTable;
-                    MessageBox.Show("Teacher Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Teacher Data Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }
                 else
@@ -155,7 +154,7 @@ namespace CMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             BtnVisibility();
         }
@@ -169,8 +168,6 @@ namespace CMS
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
                 if (TxtId.TextLength > 0 && TxtTeacherName.TextLength > 0 && TxtMobNumber.TextLength > 0 && TxtAddress.TextLength > 0 && TxtEmail.TextLength > 0)
                 {
                     string query = "DELETE FROM TEACHER WHERE tid=@id";
@@ -183,7 +180,7 @@ namespace CMS
                     sqlDataAdapter.Fill(dataTable);
 
                     TeacherTable.DataSource = dataTable;
-                    MessageBox.Show("Teacher Data Deleted Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Teacher Data Deleted Successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }
                 else
@@ -196,7 +193,7 @@ namespace CMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
