@@ -13,18 +13,17 @@ namespace CMS
 {
     public partial class AddDepartment : Form
     {
-        string connectionString = "Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True";
+            SqlConnection sqlConnection = new SqlConnection("Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True");
         public AddDepartment()
         {
             InitializeComponent();
+            sqlConnection.Open();
         }
 
         private void DepartmentTable_Load(object sender, EventArgs e)
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                sqlConnection.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
@@ -32,16 +31,16 @@ namespace CMS
                 DepartmentTable.DataSource = dataTable;
             }
             catch(Exception ex) {
-                MessageBox.Show(ex.Message, "Error While Loading Data.");
-            }
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+            BtnVisibility();
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                SqlConnection sqlConnection = new SqlConnection("Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True");
-                sqlConnection.Open();
+                
                 if (TxtDepartment.TextLength>0)
                 {
                     string query = "INSERT INTO DEPARTMENT(department)VALUES(@department)";
@@ -65,9 +64,114 @@ namespace CMS
                 }
             }
             catch(Exception ex) {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            Reset();
+        }
+
+        void BtnVisibility()
+        {
+            if (TxtId.TextLength == 0)
+            {
+                BtnUpdate.Enabled = false;
+                BtnSave.Enabled = true;
+            }
+            else if (TxtId.TextLength != 0)
+            {
+                BtnUpdate.Enabled = true;
+                BtnSave.Enabled = false;
             }
         }
 
+        void Reset()
+        {
+            TxtId.Clear();
+            TxtDepartment.Clear();
+            TxtDepartment.Focus();
+            BtnVisibility();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TxtId.TextLength>0 && TxtDepartment.TextLength>0)
+                {
+                    string query = "UPDATE DEPARTMENT SET department=@department WHERE did=@did";
+                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@did", TxtId.Text);
+                    sqlCommand.Parameters.AddWithValue("@department", TxtDepartment.Text);
+                    sqlCommand.ExecuteNonQuery();
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+
+                    DepartmentTable.DataSource = dataTable;
+                    MessageBox.Show("Department Updated.","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Anyone Data to Update","Attention",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
+
+
+            Reset();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TxtId.TextLength > 0 && TxtDepartment.TextLength > 0)
+                {
+                    string query = "DELETE FROM DEPARTMENT WHERE did=@did";
+                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@did", TxtId.Text);
+                    sqlCommand.ExecuteNonQuery();
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
+                    DataTable dataTable = new DataTable();
+                    sqlDataAdapter.Fill(dataTable);
+
+                    DepartmentTable.DataSource = dataTable;
+                    MessageBox.Show("Department Deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Anyone Data to Delete", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Reset();
+        }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+
+            Reset();
+        }
+
+        private void DepartmentTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow departmentTable = DepartmentTable.Rows[e.RowIndex];
+                TxtId.Text = departmentTable.Cells[0].Value.ToString();
+                TxtDepartment.Text = departmentTable.Cells[1].Value.ToString();
+            }
+            BtnVisibility();
+        }
     }
 }
