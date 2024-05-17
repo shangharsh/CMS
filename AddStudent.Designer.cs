@@ -47,6 +47,8 @@
             this.LblEmail = new System.Windows.Forms.Label();
             this.LblMobileNumber = new System.Windows.Forms.Label();
             this.LblTeacherName = new System.Windows.Forms.Label();
+            this.TxtId = new System.Windows.Forms.TextBox();
+            this.BtnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StudentTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,13 +64,17 @@
             // 
             // StudentTable
             // 
+            this.StudentTable.AllowUserToAddRows = false;
+            this.StudentTable.AllowUserToDeleteRows = false;
             this.StudentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.StudentTable.Location = new System.Drawing.Point(132, 471);
             this.StudentTable.Name = "StudentTable";
+            this.StudentTable.ReadOnly = true;
             this.StudentTable.RowHeadersWidth = 62;
             this.StudentTable.RowTemplate.Height = 28;
             this.StudentTable.Size = new System.Drawing.Size(1543, 315);
             this.StudentTable.TabIndex = 45;
+            this.StudentTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentTable_CellDoubleClick);
             // 
             // BtnDelete
             // 
@@ -79,6 +85,7 @@
             this.BtnDelete.TabIndex = 10;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnUpdate
             // 
@@ -89,6 +96,7 @@
             this.BtnUpdate.TabIndex = 9;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // BtnSave
             // 
@@ -233,13 +241,33 @@
             this.LblTeacherName.TabIndex = 28;
             this.LblTeacherName.Text = "Student\'s Full Name";
             // 
+            // TxtId
+            // 
+            this.TxtId.Location = new System.Drawing.Point(132, 33);
+            this.TxtId.Name = "TxtId";
+            this.TxtId.Size = new System.Drawing.Size(100, 26);
+            this.TxtId.TabIndex = 47;
+            // 
+            // BtnReset
+            // 
+            this.BtnReset.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReset.Location = new System.Drawing.Point(1132, 285);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(141, 45);
+            this.BtnReset.TabIndex = 11;
+            this.BtnReset.Text = "Reset";
+            this.BtnReset.UseVisualStyleBackColor = true;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
             // AddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1003);
+            this.Controls.Add(this.TxtId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StudentTable);
+            this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSave);
@@ -288,5 +316,7 @@
         private System.Windows.Forms.Label LblEmail;
         private System.Windows.Forms.Label LblMobileNumber;
         private System.Windows.Forms.Label LblTeacherName;
+        private System.Windows.Forms.TextBox TxtId;
+        private System.Windows.Forms.Button BtnReset;
     }
 }
