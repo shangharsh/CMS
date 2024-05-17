@@ -43,6 +43,8 @@
             this.LblTeacherName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtSemFee = new System.Windows.Forms.TextBox();
+            this.BtnReset = new System.Windows.Forms.Button();
+            this.TxtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PaymentTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,13 +60,17 @@
             // 
             // PaymentTable
             // 
+            this.PaymentTable.AllowUserToAddRows = false;
+            this.PaymentTable.AllowUserToDeleteRows = false;
             this.PaymentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PaymentTable.Location = new System.Drawing.Point(111, 484);
             this.PaymentTable.Name = "PaymentTable";
+            this.PaymentTable.ReadOnly = true;
             this.PaymentTable.RowHeadersWidth = 62;
             this.PaymentTable.RowTemplate.Height = 28;
             this.PaymentTable.Size = new System.Drawing.Size(1313, 315);
             this.PaymentTable.TabIndex = 64;
+            this.PaymentTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaymentTable_CellDoubleClick);
             // 
             // BtnDelete
             // 
@@ -75,6 +81,7 @@
             this.BtnDelete.TabIndex = 8;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnUpdate
             // 
@@ -85,6 +92,7 @@
             this.BtnUpdate.TabIndex = 7;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // BtnSave
             // 
@@ -188,13 +196,33 @@
             this.TxtSemFee.Size = new System.Drawing.Size(225, 35);
             this.TxtSemFee.TabIndex = 5;
             // 
+            // BtnReset
+            // 
+            this.BtnReset.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReset.Location = new System.Drawing.Point(1111, 295);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(141, 45);
+            this.BtnReset.TabIndex = 9;
+            this.BtnReset.Text = "Reset";
+            this.BtnReset.UseVisualStyleBackColor = true;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
+            // TxtId
+            // 
+            this.TxtId.Location = new System.Drawing.Point(112, 46);
+            this.TxtId.Name = "TxtId";
+            this.TxtId.Size = new System.Drawing.Size(100, 26);
+            this.TxtId.TabIndex = 66;
+            // 
             // FeeDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1534, 854);
+            this.Controls.Add(this.TxtId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PaymentTable);
+            this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnSave);
@@ -235,5 +263,7 @@
         private System.Windows.Forms.Label LblTeacherName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtSemFee;
+        private System.Windows.Forms.Button BtnReset;
+        private System.Windows.Forms.TextBox TxtId;
     }
 }
