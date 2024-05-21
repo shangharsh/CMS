@@ -20,15 +20,20 @@ namespace CMS
             sqlConnection.Open();
         }
 
+        void ShowData()
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT fid as Fee_Id, sname as Student_Name, semail as Student_Email, sdepartment as Department, dop as Date_of_Payment, payment as Amount FROM FEE", sqlConnection);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            PaymentTable.DataSource = dataTable;
+        }
+
         private void FeeDeposit_Load(object sender, EventArgs e)
         {
             try
             {
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM FEE", sqlConnection);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                PaymentTable.DataSource = dataTable;
+                ShowData();
             }
             catch(Exception ex)
             {
@@ -51,11 +56,7 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@payment", TxtSemFee.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM FEE", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
-
-                    PaymentTable.DataSource = dataTable;
+                    ShowData();
 
                     MessageBox.Show("Fee Added Successfully","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlConnection.Close();
@@ -115,11 +116,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@payment", TxtSemFee.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM FEE", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
+                    ShowData();
 
-                    PaymentTable.DataSource = dataTable;
                     MessageBox.Show("Student Payment Details Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }
@@ -146,11 +144,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@fid", TxtId.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM FEE", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
-
-                    PaymentTable.DataSource = dataTable;
+                    ShowData();
+                    
                     MessageBox.Show("Student Fee Details Deleted Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }

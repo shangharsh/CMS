@@ -245,8 +245,10 @@
             // 
             this.TxtId.Location = new System.Drawing.Point(127, 35);
             this.TxtId.Name = "TxtId";
+            this.TxtId.ReadOnly = true;
             this.TxtId.Size = new System.Drawing.Size(100, 26);
             this.TxtId.TabIndex = 28;
+            this.TxtId.Visible = false;
             // 
             // BtnReset
             // 

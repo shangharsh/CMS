@@ -18,7 +18,15 @@ namespace CMS
         {
             InitializeComponent();
             sqlConnection.Open();
+        }
 
+        void ShowData()
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT  tid as Teacher_Id, tname as Name, tgender as Gender, tdob as Date_of_Birth, tphone as Contact_Number, temail as Email, tdepartment as Department , taddress as Address FROM TEACHER", sqlConnection);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            TeacherTable.DataSource = dataTable;
         }
 
         private void AddTeacher_Load(object sender, EventArgs e)
@@ -26,12 +34,7 @@ namespace CMS
             BtnVisibility();
             try
             {
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM TEACHER", sqlConnection);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                TeacherTable.DataSource = dataTable;
-                
+                ShowData();
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -71,11 +74,7 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@tdepartment", ComboDepartment.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM TEACHER", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
-
-                    TeacherTable.DataSource = dataTable;
+                    ShowData();
 
                     MessageBox.Show("Teacher Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();                
@@ -139,11 +138,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@address", TxtAddress.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM TEACHER", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
+                    ShowData();
 
-                    TeacherTable.DataSource = dataTable;
                     MessageBox.Show("Teacher Data Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }
@@ -175,11 +171,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@id", TxtId.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM TEACHER", sqlConnection);
-                    DataTable dataTable =new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
+                    ShowData();
 
-                    TeacherTable.DataSource = dataTable;
                     MessageBox.Show("Teacher Data Deleted Successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }

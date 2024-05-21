@@ -72,7 +72,7 @@
             this.StudentTable.ReadOnly = true;
             this.StudentTable.RowHeadersWidth = 62;
             this.StudentTable.RowTemplate.Height = 28;
-            this.StudentTable.Size = new System.Drawing.Size(1543, 315);
+            this.StudentTable.Size = new System.Drawing.Size(1309, 315);
             this.StudentTable.TabIndex = 45;
             this.StudentTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentTable_CellDoubleClick);
             // 
@@ -245,8 +245,10 @@
             // 
             this.TxtId.Location = new System.Drawing.Point(132, 33);
             this.TxtId.Name = "TxtId";
+            this.TxtId.ReadOnly = true;
             this.TxtId.Size = new System.Drawing.Size(100, 26);
             this.TxtId.TabIndex = 47;
+            this.TxtId.Visible = false;
             // 
             // BtnReset
             // 

@@ -130,8 +130,10 @@
             // 
             this.TxtId.Location = new System.Drawing.Point(595, 81);
             this.TxtId.Name = "TxtId";
+            this.TxtId.ReadOnly = true;
             this.TxtId.Size = new System.Drawing.Size(55, 26);
             this.TxtId.TabIndex = 81;
+            this.TxtId.Visible = false;
             // 
             // AddDepartment
             // 

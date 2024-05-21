@@ -70,11 +70,23 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepartmentDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartmentDetails.Designer.cs">
+      <DependentUpon>DepartmentDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FeeDeposit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FeeDeposit.Designer.cs">
       <DependentUpon>FeeDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeeDetails.Designer.cs">
+      <DependentUpon>FeeDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -90,6 +102,18 @@
     <Compile Include="Splashscreen.Designer.cs">
       <DependentUpon>Splashscreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentDetails.Designer.cs">
+      <DependentUpon>StudentDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherDetails.Designer.cs">
+      <DependentUpon>TeacherDetails.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddDepartment.resx">
       <DependentUpon>AddDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,8 +126,14 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DepartmentDetails.resx">
+      <DependentUpon>DepartmentDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FeeDeposit.resx">
       <DependentUpon>FeeDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeeDetails.resx">
+      <DependentUpon>FeeDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -120,6 +150,12 @@
     </Compile>
     <EmbeddedResource Include="Splashscreen.resx">
       <DependentUpon>Splashscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentDetails.resx">
+      <DependentUpon>StudentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherDetails.resx">
+      <DependentUpon>TeacherDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

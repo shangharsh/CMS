@@ -211,8 +211,10 @@
             // 
             this.TxtId.Location = new System.Drawing.Point(112, 46);
             this.TxtId.Name = "TxtId";
+            this.TxtId.ReadOnly = true;
             this.TxtId.Size = new System.Drawing.Size(100, 26);
             this.TxtId.TabIndex = 66;
+            this.TxtId.Visible = false;
             // 
             // FeeDeposit
             // 

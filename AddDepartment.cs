@@ -20,15 +20,20 @@ namespace CMS
             sqlConnection.Open();
         }
 
+        void ShowData()
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT did as Department_Id, department as Department FROM DEPARTMENT", sqlConnection);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            DepartmentTable.DataSource = dataTable;
+        }
+
         private void DepartmentTable_Load(object sender, EventArgs e)
         {
             try
             {
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                DepartmentTable.DataSource = dataTable;
+                ShowData();
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -48,11 +53,7 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@department", TxtDepartment.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
-
-                    DepartmentTable.DataSource = dataTable;
+                    ShowData();
 
                     MessageBox.Show("Department Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlConnection.Close();
@@ -104,11 +105,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@department", TxtDepartment.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
-
-                    DepartmentTable.DataSource = dataTable;
+                    ShowData();
+                    
                     MessageBox.Show("Department Updated.","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }
@@ -137,11 +135,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@did", TxtId.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM DEPARTMENT", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
-
-                    DepartmentTable.DataSource = dataTable;
+                    ShowData();
+                    
                     MessageBox.Show("Department Deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }

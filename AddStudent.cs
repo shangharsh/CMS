@@ -15,11 +15,12 @@ namespace CMS
     {
 
         SqlConnection sqlConnection = new SqlConnection("Data Source = SHANGHARSH\\SQLEXPRESS; Initial Catalog = CIS; Integrated Security = True; TrustServerCertificate = True");
+            
+        
         public AddStudent()
         {
             InitializeComponent();
             sqlConnection.Open();
-
         }
 
         void Btnvisibility()
@@ -46,15 +47,20 @@ namespace CMS
             TxtStdName.Focus();
             Btnvisibility();
         }
+
+        void ShowData()
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT sid as Student_Id, sname as Name, sgender as Gender, sdob as Date_of_Birth, sphone as Contact_Number, semail as Email_Address, sdepartment as Department, saddress as Address FROM STUDENT", sqlConnection);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            StudentTable.DataSource = dataTable;
+        }
         private void AddStudent_Load(object sender, EventArgs e)
         {
             try 
             {
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM STUDENT", sqlConnection);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                StudentTable.DataSource = dataTable;
+                ShowData();
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -80,11 +86,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@saddress", TxtStdAddress.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM STUDENT", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
+                    ShowData();
 
-                    StudentTable.DataSource = dataTable;
 
                     MessageBox.Show("Student Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sqlConnection.Close();
@@ -146,11 +149,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@saddress", TxtStdAddress.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM STUDENT", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
+                    ShowData();
 
-                    StudentTable.DataSource = dataTable;
                     MessageBox.Show("Student Data Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }
@@ -176,11 +176,8 @@ namespace CMS
                     sqlCommand.Parameters.AddWithValue("@sid",TxtId.Text);
                     sqlCommand.ExecuteNonQuery();
 
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT * FROM STUDENT", sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sqlDataAdapter.Fill(dataTable);
+                    ShowData();
 
-                    StudentTable.DataSource = dataTable;
                     MessageBox.Show("Student Updated Successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Reset();
                 }

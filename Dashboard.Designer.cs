@@ -38,30 +38,30 @@
             this.BtnLogout = new System.Windows.Forms.Button();
             this.PanelStdCount = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PBStudent = new System.Windows.Forms.PictureBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.PanelDepartCount = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.PBDepartment = new System.Windows.Forms.PictureBox();
             this.PanelTeachCount = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PBTeacher = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PanelFeeTotal = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.PBFeeCollect = new System.Windows.Forms.PictureBox();
             this.PanelDashboard = new System.Windows.Forms.Panel();
             this.FlowLayoutPanel1.SuspendLayout();
             this.PanelStdCount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBStudent)).BeginInit();
             this.PanelDepartCount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBDepartment)).BeginInit();
             this.PanelTeachCount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBTeacher)).BeginInit();
             this.PanelFeeTotal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBFeeCollect)).BeginInit();
             this.PanelDashboard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,7 +174,7 @@
             // 
             this.FlowLayoutPanel1.AutoScroll = true;
             this.FlowLayoutPanel1.AutoSize = true;
-            this.FlowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.FlowLayoutPanel1.Controls.Add(this.BtnDashboard);
             this.FlowLayoutPanel1.Controls.Add(this.BtnTeacher);
             this.FlowLayoutPanel1.Controls.Add(this.BtnStudent);
@@ -213,9 +213,9 @@
             this.PanelStdCount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelStdCount.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelStdCount.Controls.Add(this.label2);
-            this.PanelStdCount.Controls.Add(this.pictureBox1);
+            this.PanelStdCount.Controls.Add(this.PBStudent);
             this.PanelStdCount.Controls.Add(this.Label1);
-            this.PanelStdCount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PanelStdCount.Cursor = System.Windows.Forms.Cursors.Default;
             this.PanelStdCount.Location = new System.Drawing.Point(199, 126);
             this.PanelStdCount.Name = "PanelStdCount";
             this.PanelStdCount.Size = new System.Drawing.Size(252, 249);
@@ -231,15 +231,17 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "1000";
             // 
-            // pictureBox1
+            // PBStudent
             // 
-            this.pictureBox1.Image = global::CMS.Properties.Resources.students_2643463;
-            this.pictureBox1.Location = new System.Drawing.Point(45, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 143);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.PBStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PBStudent.Image = global::CMS.Properties.Resources.students_2643463;
+            this.PBStudent.Location = new System.Drawing.Point(45, 55);
+            this.PBStudent.Name = "PBStudent";
+            this.PBStudent.Size = new System.Drawing.Size(158, 143);
+            this.PBStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBStudent.TabIndex = 1;
+            this.PBStudent.TabStop = false;
+            this.PBStudent.Click += new System.EventHandler(this.PBStudent_Click);
             // 
             // Label1
             // 
@@ -260,8 +262,8 @@
             this.PanelDepartCount.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelDepartCount.Controls.Add(this.label5);
             this.PanelDepartCount.Controls.Add(this.label6);
-            this.PanelDepartCount.Controls.Add(this.pictureBox3);
-            this.PanelDepartCount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PanelDepartCount.Controls.Add(this.PBDepartment);
+            this.PanelDepartCount.Cursor = System.Windows.Forms.Cursors.Default;
             this.PanelDepartCount.Location = new System.Drawing.Point(880, 126);
             this.PanelDepartCount.Name = "PanelDepartCount";
             this.PanelDepartCount.Size = new System.Drawing.Size(252, 249);
@@ -290,24 +292,26 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "4";
             // 
-            // pictureBox3
+            // PBDepartment
             // 
-            this.pictureBox3.Image = global::CMS.Properties.Resources.building_1158534;
-            this.pictureBox3.Location = new System.Drawing.Point(45, 55);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(158, 143);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            this.PBDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PBDepartment.Image = global::CMS.Properties.Resources.building_1158534;
+            this.PBDepartment.Location = new System.Drawing.Point(45, 55);
+            this.PBDepartment.Name = "PBDepartment";
+            this.PBDepartment.Size = new System.Drawing.Size(158, 143);
+            this.PBDepartment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBDepartment.TabIndex = 1;
+            this.PBDepartment.TabStop = false;
+            this.PBDepartment.Click += new System.EventHandler(this.PBDepartment_Click);
             // 
             // PanelTeachCount
             // 
             this.PanelTeachCount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelTeachCount.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelTeachCount.Controls.Add(this.label4);
-            this.PanelTeachCount.Controls.Add(this.pictureBox2);
+            this.PanelTeachCount.Controls.Add(this.PBTeacher);
             this.PanelTeachCount.Controls.Add(this.label3);
-            this.PanelTeachCount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PanelTeachCount.Cursor = System.Windows.Forms.Cursors.Default;
             this.PanelTeachCount.Location = new System.Drawing.Point(539, 126);
             this.PanelTeachCount.Name = "PanelTeachCount";
             this.PanelTeachCount.Size = new System.Drawing.Size(252, 249);
@@ -323,15 +327,17 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "100";
             // 
-            // pictureBox2
+            // PBTeacher
             // 
-            this.pictureBox2.Image = global::CMS.Properties.Resources.teacher_4345051;
-            this.pictureBox2.Location = new System.Drawing.Point(45, 55);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(158, 143);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.PBTeacher.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PBTeacher.Image = global::CMS.Properties.Resources.teacher_4345051;
+            this.PBTeacher.Location = new System.Drawing.Point(45, 55);
+            this.PBTeacher.Name = "PBTeacher";
+            this.PBTeacher.Size = new System.Drawing.Size(158, 143);
+            this.PBTeacher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBTeacher.TabIndex = 1;
+            this.PBTeacher.TabStop = false;
+            this.PBTeacher.Click += new System.EventHandler(this.PBTeacher_Click);
             // 
             // label3
             // 
@@ -352,8 +358,8 @@
             this.PanelFeeTotal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelFeeTotal.Controls.Add(this.label7);
             this.PanelFeeTotal.Controls.Add(this.label8);
-            this.PanelFeeTotal.Controls.Add(this.pictureBox4);
-            this.PanelFeeTotal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PanelFeeTotal.Controls.Add(this.PBFeeCollect);
+            this.PanelFeeTotal.Cursor = System.Windows.Forms.Cursors.Default;
             this.PanelFeeTotal.Location = new System.Drawing.Point(1213, 126);
             this.PanelFeeTotal.Name = "PanelFeeTotal";
             this.PanelFeeTotal.Size = new System.Drawing.Size(252, 249);
@@ -382,18 +388,21 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "100000";
             // 
-            // pictureBox4
+            // PBFeeCollect
             // 
-            this.pictureBox4.Image = global::CMS.Properties.Resources.feesDeposit1;
-            this.pictureBox4.Location = new System.Drawing.Point(45, 55);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(158, 143);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
+            this.PBFeeCollect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PBFeeCollect.Image = global::CMS.Properties.Resources.feesDeposit1;
+            this.PBFeeCollect.Location = new System.Drawing.Point(45, 55);
+            this.PBFeeCollect.Name = "PBFeeCollect";
+            this.PBFeeCollect.Size = new System.Drawing.Size(158, 143);
+            this.PBFeeCollect.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBFeeCollect.TabIndex = 1;
+            this.PBFeeCollect.TabStop = false;
+            this.PBFeeCollect.Click += new System.EventHandler(this.PBFeeCollect_Click);
             // 
             // PanelDashboard
             // 
+            this.PanelDashboard.BackColor = System.Drawing.Color.PaleTurquoise;
             this.PanelDashboard.Controls.Add(this.PanelFeeTotal);
             this.PanelDashboard.Controls.Add(this.PanelTeachCount);
             this.PanelDashboard.Controls.Add(this.PanelDepartCount);
@@ -421,16 +430,16 @@
             this.FlowLayoutPanel1.PerformLayout();
             this.PanelStdCount.ResumeLayout(false);
             this.PanelStdCount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBStudent)).EndInit();
             this.PanelDepartCount.ResumeLayout(false);
             this.PanelDepartCount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBDepartment)).EndInit();
             this.PanelTeachCount.ResumeLayout(false);
             this.PanelTeachCount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBTeacher)).EndInit();
             this.PanelFeeTotal.ResumeLayout(false);
             this.PanelFeeTotal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBFeeCollect)).EndInit();
             this.PanelDashboard.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -447,20 +456,20 @@
         private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel1;
         private System.Windows.Forms.Panel PanelStdCount;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PBStudent;
         private System.Windows.Forms.Label Label1;
         private System.Windows.Forms.Panel PanelDepartCount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox PBDepartment;
         private System.Windows.Forms.Panel PanelTeachCount;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox PBTeacher;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel PanelFeeTotal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox PBFeeCollect;
         private System.Windows.Forms.Panel PanelDashboard;
         private System.Windows.Forms.Button BtnLogout;
     }

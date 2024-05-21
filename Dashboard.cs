@@ -17,6 +17,10 @@ namespace CMS
         public FeeDeposit feeDeposit = new FeeDeposit();
         public AddDepartment addDepartment = new AddDepartment();
         public Login login = new Login();
+        public StudentDetails studentDetails = new StudentDetails();
+        public TeacherDetails teacherDetails = new TeacherDetails();
+        public DepartmentDetails departmentDetails = new DepartmentDetails();
+        public FeeDetails feeDetails = new FeeDetails();
         public string username;
 
         public Dashboard()
@@ -24,10 +28,7 @@ namespace CMS
             InitializeComponent();
         }
 
-        public void CloseForm(Form form)
-        {
-            form.Close();
-        }
+        
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -54,6 +55,7 @@ namespace CMS
             //   TopLevel = false,
             //   Dock = DockStyle.Fill
             //};
+            
             addTeacher.TopLevel = false;
             addTeacher.Dock = DockStyle.Fill;
             PanelDashboard.Controls.Add(addTeacher);
@@ -93,5 +95,44 @@ namespace CMS
             this.Close();
             login.Show();
         }
+
+        private void PBStudent_Click(object sender, EventArgs e)
+        {
+            studentDetails.Show();
+            studentDetails.BringToFront();
+            teacherDetails.Hide();
+            feeDetails.Hide();
+            departmentDetails.Hide();
+        }
+
+        private void PBTeacher_Click(object sender, EventArgs e)
+        {
+            studentDetails.Hide();
+            teacherDetails.BringToFront();
+            teacherDetails.Show();
+            feeDetails.Hide();
+            departmentDetails.Hide();
+        }
+
+        private void PBDepartment_Click(object sender, EventArgs e)
+        {
+            studentDetails.Hide();
+            teacherDetails.Hide();
+            feeDetails.Hide();
+            departmentDetails.Show();
+            departmentDetails.BringToFront();
+
+        }
+
+        private void PBFeeCollect_Click(object sender, EventArgs e)
+        {
+            studentDetails.Hide();
+            teacherDetails.Hide();
+            feeDetails.Show();
+            feeDetails.BringToFront();
+            departmentDetails.Hide();
+        }
+
+        
     }
 }

@@ -64,9 +64,9 @@
             this.Label1.ForeColor = System.Drawing.Color.White;
             this.Label1.Location = new System.Drawing.Point(87, 222);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(386, 32);
+            this.Label1.Size = new System.Drawing.Size(362, 32);
             this.Label1.TabIndex = 1;
-            this.Label1.Text = "College Management System";
+            this.Label1.Text = "College Information System";
             // 
             // Label2
             // 
