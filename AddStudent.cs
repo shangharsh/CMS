@@ -20,7 +20,6 @@ namespace CMS
         public AddStudent()
         {
             InitializeComponent();
-            sqlConnection.Open();
         }
 
         void Btnvisibility()
@@ -55,12 +54,27 @@ namespace CMS
             sqlDataAdapter.Fill(dataTable);
 
             StudentTable.DataSource = dataTable;
+
+            SqlCommand sqlCommand = new SqlCommand("SELECT department from DEPARTMENT", sqlConnection);
+            SqlDataReader sqlDataReader =sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                ComboStdDepartment.Items.Add(sqlDataReader.GetString(0));
+            }
+            sqlDataReader.Close();
+
         }
         private void AddStudent_Load(object sender, EventArgs e)
         {
             try 
             {
-                ShowData();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                    ShowData();
+                    sqlConnection.Close();
+                }
+
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -75,26 +89,31 @@ namespace CMS
             {
                 if (TxtStdAddress.TextLength>0 && TxtStdName.TextLength>0 && TxtStdEmail.TextLength>0 && TxtStdNum.TextLength>0)
                 {
-                    string query = "INSERT INTO STUDENT(sname, sgender, sdob, sphone, semail, sdepartment, saddress)VALUES(@sname, @sgender, @sdob, @sphone, @semail, @sdepartment, @saddress)";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@sname", TxtStdName.Text);
-                    sqlCommand.Parameters.AddWithValue("@sgender", ComboStdGender.Text);
-                    sqlCommand.Parameters.AddWithValue("@sdob", PickerStdDateTime.Value.Date);
-                    sqlCommand.Parameters.AddWithValue("@sphone", TxtStdNum.Text);
-                    sqlCommand.Parameters.AddWithValue("@semail", TxtStdEmail.Text);
-                    sqlCommand.Parameters.AddWithValue("@sdepartment", ComboStdDepartment.Text);
-                    sqlCommand.Parameters.AddWithValue("@saddress", TxtStdAddress.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "INSERT INTO STUDENT(sname, sgender, sdob, sphone, semail, sdepartment, saddress)VALUES(@sname, @sgender, @sdob, @sphone, @semail, @sdepartment, @saddress)";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@sname", TxtStdName.Text);
+                        sqlCommand.Parameters.AddWithValue("@sgender", ComboStdGender.Text);
+                        sqlCommand.Parameters.AddWithValue("@sdob", PickerStdDateTime.Value.Date);
+                        sqlCommand.Parameters.AddWithValue("@sphone", TxtStdNum.Text);
+                        sqlCommand.Parameters.AddWithValue("@semail", TxtStdEmail.Text);
+                        sqlCommand.Parameters.AddWithValue("@sdepartment", ComboStdDepartment.Text);
+                        sqlCommand.Parameters.AddWithValue("@saddress", TxtStdAddress.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
+                        ShowData();
 
 
-                    MessageBox.Show("Student Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    sqlConnection.Close();
-                    TxtStdName.Text = "";
-                    TxtStdEmail.Text = "";
-                    TxtStdNum.Text = "";
-                    TxtStdAddress.Text = "";
+                        MessageBox.Show("Student Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        sqlConnection.Close();
+                        TxtStdName.Text = "";
+                        TxtStdEmail.Text = "";
+                        TxtStdNum.Text = "";
+                        TxtStdAddress.Text = "";
+                        sqlConnection.Close();
+                    }
                 }
                 else
                 {
@@ -137,22 +156,27 @@ namespace CMS
             {
                 if (TxtId.TextLength > 0 && TxtStdName.TextLength > 0 && TxtStdNum.TextLength > 0 && TxtStdEmail.TextLength > 0 && TxtStdAddress.TextLength > 0)
                 {
-                    string query = "UPDATE STUDENT SET sname=@sname, sgender=@sgender, sdob=@sdob, sphone=@sphone, semail=@semail, sdepartment=@sdepartment, saddress=@saddress WHERE sid=@sid";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@sid", TxtId.Text);
-                    sqlCommand.Parameters.AddWithValue("@sname", TxtStdName.Text);
-                    sqlCommand.Parameters.AddWithValue("@sgender", ComboStdGender.Text);
-                    sqlCommand.Parameters.AddWithValue("@sdob", PickerStdDateTime.Value.Date);
-                    sqlCommand.Parameters.AddWithValue("@sphone", TxtStdNum.Text);
-                    sqlCommand.Parameters.AddWithValue("@semail", TxtStdEmail.Text);
-                    sqlCommand.Parameters.AddWithValue("@sdepartment", ComboStdDepartment.Text);
-                    sqlCommand.Parameters.AddWithValue("@saddress", TxtStdAddress.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "UPDATE STUDENT SET sname=@sname, sgender=@sgender, sdob=@sdob, sphone=@sphone, semail=@semail, sdepartment=@sdepartment, saddress=@saddress WHERE sid=@sid";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@sid", TxtId.Text);
+                        sqlCommand.Parameters.AddWithValue("@sname", TxtStdName.Text);
+                        sqlCommand.Parameters.AddWithValue("@sgender", ComboStdGender.Text);
+                        sqlCommand.Parameters.AddWithValue("@sdob", PickerStdDateTime.Value.Date);
+                        sqlCommand.Parameters.AddWithValue("@sphone", TxtStdNum.Text);
+                        sqlCommand.Parameters.AddWithValue("@semail", TxtStdEmail.Text);
+                        sqlCommand.Parameters.AddWithValue("@sdepartment", ComboStdDepartment.Text);
+                        sqlCommand.Parameters.AddWithValue("@saddress", TxtStdAddress.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
+                        ShowData();
 
-                    MessageBox.Show("Student Data Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
+                        MessageBox.Show("Student Data Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Reset();
+                        sqlConnection.Close();
+                    }
                 }
                 else
                 {
@@ -171,15 +195,20 @@ namespace CMS
             {
                 if (TxtId.TextLength > 0 && TxtStdName.TextLength > 0 && TxtStdNum.TextLength > 0 && TxtStdEmail.TextLength > 0 && TxtStdAddress.TextLength > 0)
                 {
-                    string query = "DELETE FROM STUDENT WHERE sid=@sid";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@sid",TxtId.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "DELETE FROM STUDENT WHERE sid=@sid";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@sid", TxtId.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
+                        ShowData();
 
-                    MessageBox.Show("Student Updated Successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
+                        MessageBox.Show("Student Updated Successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Reset();
+                        sqlConnection.Close() ;
+                    }
                 }
                 else
                 {

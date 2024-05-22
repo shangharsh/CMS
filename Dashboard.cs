@@ -12,10 +12,7 @@ namespace CMS
 {
     public partial class Dashboard : Form
     {
-        public AddTeacher addTeacher = new AddTeacher();
-        public AddStudent addStudent = new AddStudent();
-        public FeeDeposit feeDeposit = new FeeDeposit();
-        public AddDepartment addDepartment = new AddDepartment();
+        
         public Login login = new Login();
         public StudentDetails studentDetails = new StudentDetails();
         public TeacherDetails teacherDetails = new TeacherDetails();
@@ -35,18 +32,23 @@ namespace CMS
             PanelDashboard.Visible = true;
             PanelDashboard.BringToFront();
             PanelDashboard.Show();
-            //MessageBox.Show("HI");
         }
+
+        
 
         private void BtnDashboard_Click(object sender, EventArgs e)
         {
-            addTeacher.Hide();
-            addStudent.Hide();
-            addDepartment.Hide();
-            feeDeposit.Hide();
+            AddTeacher addTeacher = new AddTeacher();
+            AddStudent addStudent = new AddStudent();
+            FeeDeposit feeDeposit = new FeeDeposit();
+            AddDepartment addDepartment = new AddDepartment();
             PanelDashboard.Visible = true;
-            PanelDashboard.BringToFront();
             PanelDashboard.Show();
+            PanelDashboard.BringToFront();
+            addTeacher.Close();
+            addStudent.Close();
+            addDepartment.Close();
+            feeDeposit.Close();
         }
         private void BtnTeacher_Click(object sender, EventArgs e)
         {
@@ -55,16 +57,17 @@ namespace CMS
             //   TopLevel = false,
             //   Dock = DockStyle.Fill
             //};
-            
+            AddTeacher addTeacher = new AddTeacher();
             addTeacher.TopLevel = false;
             addTeacher.Dock = DockStyle.Fill;
             PanelDashboard.Controls.Add(addTeacher);
-            addTeacher.BringToFront();
             addTeacher.Show();
+            addTeacher.BringToFront();
         }
 
         private void BtnStudent_Click(object sender, EventArgs e)
         {
+            AddStudent addStudent = new AddStudent();
             addStudent.TopLevel = false;
             addStudent.Dock = DockStyle.Fill;
             PanelDashboard.Controls.Add(addStudent);
@@ -74,6 +77,7 @@ namespace CMS
 
         private void BtnFee_Click(object sender, EventArgs e)
         {
+            FeeDeposit feeDeposit = new FeeDeposit();
             feeDeposit.TopLevel = false;
             feeDeposit.Dock = DockStyle.Fill;
             PanelDashboard.Controls.Add(feeDeposit);
@@ -83,11 +87,12 @@ namespace CMS
 
         private void BtnDepartment_Click(object sender, EventArgs e)
         {
+            AddDepartment addDepartment = new AddDepartment();
             addDepartment.TopLevel = false;
             addDepartment.Dock = DockStyle.Fill;
             PanelDashboard.Controls.Add(addDepartment);
-            addDepartment.BringToFront();
             addDepartment.Show();
+            addDepartment.BringToFront();
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)
@@ -132,7 +137,5 @@ namespace CMS
             feeDetails.BringToFront();
             departmentDetails.Hide();
         }
-
-        
     }
 }

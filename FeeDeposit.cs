@@ -17,7 +17,6 @@ namespace CMS
         public FeeDeposit()
         {
             InitializeComponent();
-            sqlConnection.Open();
         }
 
         void ShowData()
@@ -27,13 +26,28 @@ namespace CMS
             sqlDataAdapter.Fill(dataTable);
 
             PaymentTable.DataSource = dataTable;
+
+            SqlCommand sqlCommand = new SqlCommand("SELECT department FROM DEPARTMENT", sqlConnection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                ComboDepartment.Items.Add(sqlDataReader.GetString(0));
+            }
+            sqlDataReader.Close();
+
         }
 
         private void FeeDeposit_Load(object sender, EventArgs e)
         {
             try
             {
-                ShowData();
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                    ShowData();
+                    sqlConnection.Close();
+                }
+
             }
             catch(Exception ex)
             {
@@ -47,22 +61,27 @@ namespace CMS
             {
                 if (TxtStdName.TextLength>0 && TxtEmail.TextLength>0 && TxtSemFee.TextLength>0)
                 {
-                    string query = "INSERT INTO FEE(sname, semail, sdepartment, dop, payment)VALUES(@sname, @semail, @sdepartment, @dop, @payment)";
-                    SqlCommand  sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@sname", TxtStdName.Text);
-                    sqlCommand.Parameters.AddWithValue("@semail", TxtEmail.Text);
-                    sqlCommand.Parameters.AddWithValue("@sdepartment", ComboDepartment.Text);
-                    sqlCommand.Parameters.AddWithValue("@dop", PickerPaymentDate.Value.Date);
-                    sqlCommand.Parameters.AddWithValue("@payment", TxtSemFee.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "INSERT INTO FEE(sname, semail, sdepartment, dop, payment)VALUES(@sname, @semail, @sdepartment, @dop, @payment)";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@sname", TxtStdName.Text);
+                        sqlCommand.Parameters.AddWithValue("@semail", TxtEmail.Text);
+                        sqlCommand.Parameters.AddWithValue("@sdepartment", ComboDepartment.Text);
+                        sqlCommand.Parameters.AddWithValue("@dop", PickerPaymentDate.Value.Date);
+                        sqlCommand.Parameters.AddWithValue("@payment", TxtSemFee.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
+                        ShowData();
 
-                    MessageBox.Show("Fee Added Successfully","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    sqlConnection.Close();
-                    TxtStdName.Text = "";
-                    TxtEmail.Text = "";
-                    TxtSemFee.Text = "";
+                        MessageBox.Show("Fee Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        sqlConnection.Close();
+                        TxtStdName.Text = "";
+                        TxtEmail.Text = "";
+                        TxtSemFee.Text = "";
+                        sqlConnection.Close();
+                    }
                 }
                 else
                 {
@@ -106,20 +125,25 @@ namespace CMS
             {
                 if (TxtId.TextLength>0 && TxtStdName.TextLength>0 && TxtEmail.TextLength>0 && TxtSemFee.TextLength>0)
                 {
-                    string query = "UPDATE FEE SET sname=@sname, semail=@semail, sdepartment=@sdepartment, dop=@dop, payment=@payment WHERE fid=@fid";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@fid", TxtId.Text);
-                    sqlCommand.Parameters.AddWithValue("@sname", TxtStdName.Text);
-                    sqlCommand.Parameters.AddWithValue("@semail", TxtEmail.Text);
-                    sqlCommand.Parameters.AddWithValue("@sdepartment", ComboDepartment.Text);
-                    sqlCommand.Parameters.AddWithValue("@dop", PickerPaymentDate.Value.Date);
-                    sqlCommand.Parameters.AddWithValue("@payment", TxtSemFee.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "UPDATE FEE SET sname=@sname, semail=@semail, sdepartment=@sdepartment, dop=@dop, payment=@payment WHERE fid=@fid";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@fid", TxtId.Text);
+                        sqlCommand.Parameters.AddWithValue("@sname", TxtStdName.Text);
+                        sqlCommand.Parameters.AddWithValue("@semail", TxtEmail.Text);
+                        sqlCommand.Parameters.AddWithValue("@sdepartment", ComboDepartment.Text);
+                        sqlCommand.Parameters.AddWithValue("@dop", PickerPaymentDate.Value.Date);
+                        sqlCommand.Parameters.AddWithValue("@payment", TxtSemFee.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
+                        ShowData();
 
-                    MessageBox.Show("Student Payment Details Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
+                        MessageBox.Show("Student Payment Details Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Reset();
+                        sqlConnection.Close();
+                    }
                 }
                 else
                 {
@@ -139,15 +163,20 @@ namespace CMS
             {
                 if (TxtId.TextLength > 0 && TxtStdName.TextLength > 0 && TxtEmail.TextLength > 0 && TxtSemFee.TextLength > 0)
                 {
-                    string query = "DELETE FROM FEE WHERE fid=@fid";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@fid", TxtId.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "DELETE FROM FEE WHERE fid=@fid";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@fid", TxtId.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
-                    
-                    MessageBox.Show("Student Fee Details Deleted Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
+                        ShowData();
+
+                        MessageBox.Show("Student Fee Details Deleted Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Reset();
+                        sqlConnection.Close();
+                    }
                 }
                 else
                 {

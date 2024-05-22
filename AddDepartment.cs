@@ -17,7 +17,6 @@ namespace CMS
         public AddDepartment()
         {
             InitializeComponent();
-            sqlConnection.Open();
         }
 
         void ShowData()
@@ -33,7 +32,13 @@ namespace CMS
         {
             try
             {
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                sqlConnection.Open();
                 ShowData();
+                sqlConnection.Close();
+                    
+                }
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -48,16 +53,25 @@ namespace CMS
                 
                 if (TxtDepartment.TextLength>0)
                 {
-                    string query = "INSERT INTO DEPARTMENT(department)VALUES(@department)";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@department", TxtDepartment.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "INSERT INTO DEPARTMENT(department)VALUES(@department)";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@department", TxtDepartment.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
+                        ShowData();
 
-                    MessageBox.Show("Department Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    sqlConnection.Close();
-                    TxtDepartment.Text = "";
+                        MessageBox.Show("Department Added Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        sqlConnection.Close();
+                        TxtDepartment.Text = "";
+                        sqlConnection.Close();
+                    }
+
+
+                    
+                    
                 }
                 else
                 {
@@ -99,16 +113,21 @@ namespace CMS
             {
                 if (TxtId.TextLength>0 && TxtDepartment.TextLength>0)
                 {
-                    string query = "UPDATE DEPARTMENT SET department=@department WHERE did=@did";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@did", TxtId.Text);
-                    sqlCommand.Parameters.AddWithValue("@department", TxtDepartment.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "UPDATE DEPARTMENT SET department=@department WHERE did=@did";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@did", TxtId.Text);
+                        sqlCommand.Parameters.AddWithValue("@department", TxtDepartment.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
-                    
-                    MessageBox.Show("Department Updated.","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
+                        ShowData();
+
+                        MessageBox.Show("Department Updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Reset();
+                        sqlConnection.Close();
+                    }
                 }
                 else
                 {
@@ -119,8 +138,6 @@ namespace CMS
             {
                 MessageBox.Show(ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
-
-
             Reset();
         }
 
@@ -130,15 +147,21 @@ namespace CMS
             {
                 if (TxtId.TextLength > 0 && TxtDepartment.TextLength > 0)
                 {
-                    string query = "DELETE FROM DEPARTMENT WHERE did=@did";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@did", TxtId.Text);
-                    sqlCommand.ExecuteNonQuery();
+                    if (sqlConnection.State == ConnectionState.Closed)
+                    {
+                        sqlConnection.Open();
+                        string query = "DELETE FROM DEPARTMENT WHERE did=@did";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("@did", TxtId.Text);
+                        sqlCommand.ExecuteNonQuery();
 
-                    ShowData();
+                        ShowData();
+
+                        MessageBox.Show("Department Deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Reset();
+                        sqlConnection.Close();
+                    }
                     
-                    MessageBox.Show("Department Deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Reset();
                 }
                 else
                 {
@@ -154,7 +177,6 @@ namespace CMS
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-
             Reset();
         }
 
